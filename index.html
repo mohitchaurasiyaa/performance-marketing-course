@@ -1,0 +1,2025 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Performance Marketing Masterclass</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: course handbook — sticky module index on the left, long-form lessons on the right; formulas set like a ledger */
+:root{
+  --bg:#f6f7f4;
+  --surface:#ffffff;
+  --sunk:#eef0eb;
+  --fg:#1b2420;
+  --muted:#5a665f;
+  --line:#d9ded6;
+  --accent:#0e6b52;      /* ledger green: money, growth */
+  --accent-soft:#e1f0ea;
+  --accent-ink:#ffffff;
+  --amber:#a85d00;       /* tips / warnings */
+  --amber-soft:#fbefdc;
+  --red:#b3261e;
+  --red-soft:#fbe5e3;
+  --blue:#1d5aa6;
+  --blue-soft:#e3edf9;
+  --display:"Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --body:"IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, Menlo, Consolas, monospace;
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#121614;--surface:#191e1b;--sunk:#202723;--fg:#e4ebe6;--muted:#9aa8a0;--line:#2f3833;
+  --accent:#4fc39b;--accent-soft:#173329;--accent-ink:#0c1a14;
+  --amber:#f0b45a;--amber-soft:#30260f;--red:#f08a82;--red-soft:#361a18;--blue:#86b3ec;--blue-soft:#172538;
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#121614;--surface:#191e1b;--sunk:#202723;--fg:#e4ebe6;--muted:#9aa8a0;--line:#2f3833;
+  --accent:#4fc39b;--accent-soft:#173329;--accent-ink:#0c1a14;
+  --amber:#f0b45a;--amber-soft:#30260f;--red:#f08a82;--red-soft:#361a18;--blue:#86b3ec;--blue-soft:#172538;
+  color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--surface);border-bottom:1px solid var(--line);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:10px;
+  display:flex;align-items:center;gap:14px}
+.brand{font-family:var(--display);font-weight:800;font-size:17px;letter-spacing:-.01em;white-space:nowrap}
+.brand span{color:var(--accent)}
+.progress{flex:1;display:flex;align-items:center;gap:10px;min-width:0}
+.bar{flex:1;height:6px;background:var(--sunk);border-radius:99px;overflow:hidden;max-width:320px}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .3s}
+.pct{font-family:var(--mono);font-size:12.5px;color:var(--muted);white-space:nowrap;font-variant-numeric:tabular-nums}
+.menu-btn{display:none;border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:8px;padding:6px 12px;font:500 14px var(--body);cursor:pointer}
+
+/* shell */
+.shell{display:grid;grid-template-columns:290px minmax(0,1fr);max-width:1260px;margin:0 auto;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));gap:44px}
+nav.toc{position:sticky;top:calc(env(safe-area-inset-top,0px) + 58px);align-self:start;max-height:calc(100vh - 70px);overflow:auto;padding-block:28px 40px;font-size:14px}
+.toc h4{font:600 11.5px var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.toc ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.toc a.mod{display:flex;gap:10px;align-items:baseline;padding:7px 10px;border-radius:8px;color:var(--fg);text-decoration:none;font-weight:600;line-height:1.35}
+.toc a.mod:hover{background:var(--sunk)}
+.toc a.mod.active{background:var(--accent-soft);color:var(--accent)}
+.toc a.mod .n{font-family:var(--mono);font-size:12px;color:var(--muted);min-width:22px}
+.toc a.mod.done .n{color:var(--accent)}
+.toc a.mod.done .n::after{content:" ✓"}
+.toc .subs{list-style:none;margin:0 0 6px 32px;padding:0;display:none}
+.toc .subs.open{display:block}
+.toc .subs a{display:block;padding:3px 8px;color:var(--muted);text-decoration:none;font-size:13.5px;line-height:1.4;border-left:1px solid var(--line)}
+.toc .subs a:hover{color:var(--fg);border-color:var(--accent)}
+
+main{min-width:0;padding-block:32px 120px}
+.wrap{max-width:780px}
+
+/* hero */
+.hero{padding-block:20px 34px;border-bottom:1px solid var(--line);margin-bottom:12px}
+.eyebrow{font:600 12px var(--body);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(34px,5.4vw,56px);line-height:1.02;letter-spacing:-.025em;margin:10px 0 16px;text-wrap:balance}
+.hero p.lede{font-size:18.5px;color:var(--muted);max-width:62ch;margin:0}
+.facts{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:14px;color:var(--muted)}
+.facts b{color:var(--fg);font-family:var(--mono);font-weight:500}
+
+/* modules */
+section.module{padding-top:46px;margin-top:30px;border-top:2px solid var(--fg)}
+section.module:first-of-type{border-top:0}
+.mod-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 16px;margin-bottom:6px}
+.mod-num{font-family:var(--mono);font-size:13px;color:var(--accent);letter-spacing:.06em}
+.mod-time{font-size:13px;color:var(--muted)}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(28px,3.6vw,38px);line-height:1.1;letter-spacing:-.02em;margin:4px 0 14px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:700;font-size:23px;line-height:1.25;letter-spacing:-.01em;margin:44px 0 10px;text-wrap:balance;scroll-margin-top:72px}
+h3 .tn{font-family:var(--mono);font-size:13px;font-weight:500;color:var(--muted);margin-right:8px;letter-spacing:0}
+h4{font-family:var(--body);font-weight:600;font-size:17px;margin:26px 0 6px}
+p{margin:0 0 14px}
+ul,ol{padding-left:22px;margin:0 0 16px}
+li{margin-bottom:6px}
+li::marker{color:var(--muted)}
+strong{font-weight:600}
+code,.mono{font-family:var(--mono);font-size:.88em;background:var(--sunk);padding:1px 6px;border-radius:5px}
+.goals{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin:16px 0 8px}
+.goals h5,.box h5{font:600 12px var(--body);letter-spacing:.09em;text-transform:uppercase;margin:0 0 8px;color:var(--muted)}
+.goals ul{margin:0}
+
+/* callouts */
+.box{border-radius:var(--radius);padding:14px 18px;margin:18px 0;font-size:15.5px}
+.box p:last-child,.box ul:last-child,.box ol:last-child{margin-bottom:0}
+.tip{background:var(--accent-soft)}
+.tip h5{color:var(--accent)}
+.warn{background:var(--amber-soft)}
+.warn h5{color:var(--amber)}
+.mistake{background:var(--red-soft)}
+.mistake h5{color:var(--red)}
+.new{background:var(--blue-soft)}
+.new h5{color:var(--blue)}
+.example{background:var(--surface);border:1px dashed var(--line)}
+
+/* formula ledger */
+.formula{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:6px;padding:12px 16px;margin:14px 0;font-family:var(--mono);font-size:14.5px;line-height:1.6;overflow-x:auto}
+.formula .lbl{display:block;font-family:var(--body);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:2px}
+.formula b{color:var(--accent);font-weight:500}
+
+/* tables */
+.tbl{overflow-x:auto;margin:16px 0 20px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:14.5px;line-height:1.5}
+th,td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--sunk);font-weight:600;font-size:13px;white-space:nowrap}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+/* practice + self check */
+.task{border:1px solid var(--accent);border-radius:var(--radius);padding:16px 20px;margin:28px 0 14px;background:var(--surface)}
+.task h5{color:var(--accent)}
+details.check{border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);margin:10px 0}
+details.check summary{cursor:pointer;padding:12px 18px;font-weight:600;list-style:none;display:flex;justify-content:space-between;gap:10px}
+details.check summary::-webkit-details-marker{display:none}
+details.check summary::after{content:"+";font-family:var(--mono);color:var(--muted)}
+details.check[open] summary::after{content:"−"}
+details.check .in{padding:0 18px 14px}
+details.check .in ol li{margin-bottom:10px}
+details.check .ans{display:block;color:var(--muted);font-size:14.5px;margin-top:2px}
+
+.done-row{display:flex;justify-content:flex-end;margin-top:22px}
+.done-btn{border:1px solid var(--line);background:var(--surface);color:var(--fg);border-radius:99px;padding:8px 18px;font:600 14px var(--body);cursor:pointer}
+.done-btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+
+/* grid of mini cards */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:16px 0 20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;font-size:15px;min-width:0}
+.card b{display:block;font-family:var(--display);font-size:16.5px;margin-bottom:4px}
+.card p{margin:0;color:var(--muted)}
+
+/* funnel diagram */
+.funnel{display:flex;flex-direction:column;align-items:center;gap:6px;margin:20px 0}
+.funnel div{background:var(--accent-soft);color:var(--fg);text-align:center;padding:10px 14px;border-radius:6px;font-size:14.5px;max-width:100%}
+.funnel div b{color:var(--accent)}
+
+/* calculator */
+.calc{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin:20px 0}
+.calc h5{font:600 12px var(--body);letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin:0 0 12px}
+.calc .inputs{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px}
+.calc label{display:flex;flex-direction:column;gap:4px;font-size:13px;color:var(--muted);font-weight:500}
+.calc input{font:500 15px var(--mono);padding:8px 10px;border:1px solid var(--line);border-radius:7px;background:var(--bg);color:var(--fg);width:100%;font-variant-numeric:tabular-nums}
+.calc .out{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:16px;border-top:1px solid var(--line);padding-top:14px}
+.calc .out div{font-size:13px;color:var(--muted)}
+.calc .out b{display:block;font:500 20px var(--mono);color:var(--fg);font-variant-numeric:tabular-nums}
+.calc .verdict{margin-top:12px;font-size:14.5px;padding:10px 12px;border-radius:7px;background:var(--sunk)}
+
+/* week plan */
+.weeks{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px;margin:16px 0}
+.week{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;font-size:14.5px;min-width:0}
+.week .wk{font-family:var(--mono);font-size:12px;color:var(--accent)}
+.week b{display:block;font-family:var(--display);font-size:16px;margin:2px 0 6px}
+.week ul{margin:0;padding-left:18px}
+.week li{margin-bottom:3px}
+
+/* glossary */
+dl.gloss{display:grid;grid-template-columns:minmax(110px,180px) minmax(0,1fr);gap:8px 18px;font-size:15px;margin:16px 0}
+dl.gloss dt{font-family:var(--mono);font-weight:500;color:var(--accent)}
+dl.gloss dd{margin:0;color:var(--fg)}
+
+footer.foot{margin-top:60px;padding-top:20px;border-top:1px solid var(--line);font-size:13.5px;color:var(--muted)}
+
+@media (max-width: 960px){
+  .shell{grid-template-columns:minmax(0,1fr);gap:0}
+  nav.toc{position:fixed;top:calc(env(safe-area-inset-top,0px) + 53px);left:0;bottom:0;width:min(330px,88vw);max-height:none;background:var(--surface);border-right:1px solid var(--line);z-index:8;
+    padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:16px;transform:translateX(-102%);transition:transform .25s}
+  nav.toc.open{transform:none;box-shadow:0 10px 40px rgba(0,0,0,.18)}
+  .menu-btn{display:inline-block}
+  .bar{max-width:none}
+}
+@media (max-width: 520px){
+  body{font-size:16px}
+  dl.gloss{grid-template-columns:minmax(0,1fr)}
+  dl.gloss dd{margin-bottom:8px}
+  .brand{font-size:15px}
+}
+</style>
+
+<header class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="toc">Modules</button>
+  <div class="brand">Performance <span>Marketing</span></div>
+  <div class="progress"><div class="bar"><i id="barFill"></i></div><span class="pct" id="pctTxt">0 / 9 modules</span></div>
+</header>
+
+<div class="shell">
+<nav class="toc" id="toc" aria-label="Course modules">
+  <h4>Course index</h4>
+  <ol id="tocList"></ol>
+</nav>
+<main>
+<div class="wrap">
+
+<div class="hero">
+  <div class="eyebrow">Zero se Expert · 2026 Edition · Hinglish Notes</div>
+  <h1>Performance Marketing Masterclass</h1>
+  <p class="lede">Meta Ads, Google Ads, tracking, creatives, CRO, AI aur portfolio — ek-ek topic depth mein, Indian examples aur ₹ numbers ke saath. Isse padh ke aap client ke account ko samajh, chala aur grow kar paoge.</p>
+  <div class="facts">
+    <span><b>9</b> modules</span>
+    <span><b>90</b> din ka plan</span>
+    <span><b>60+</b> topics</span>
+    <span>Updated <b>Oct 2026</b></span>
+  </div>
+</div>
+<section class="module" id="m0" data-title="Shuruaat: Course kaise padhein">
+<div class="mod-head"><span class="mod-num">MODULE 00</span><span class="mod-time">~1 ghanta</span></div>
+<h2>Shuruaat: Performance Marketing hai kya?</h2>
+
+<p>Performance marketing matlab aisi marketing jahan aap <strong>result ke hisaab se paisa lagate ho aur result ke hisaab se hi judge hote ho</strong>. Har rupaye ka hisaab hota hai: kitna kharch hua, kitne leads aaye, kitni sales hui, kitna profit bana. Brand marketing "log hume yaad rakhein" pe focus karti hai; performance marketing "aaj kitne log khareedenge aur kis cost pe" pe.</p>
+
+<h3 id="m0-what"><span class="tn">0.1</span>Performance marketer ka actual kaam</h3>
+<p>Log sochte hain ki kaam sirf "ads chalana" hai. Asal mein ek achha performance marketer ye 6 kaam karta hai:</p>
+<div class="cards">
+  <div class="card"><b>1. Business samajhna</b><p>Product ka margin, AOV, repeat rate, ek customer kitne mein afford ho sakta hai.</p></div>
+  <div class="card"><b>2. Tracking set karna</b><p>Pixel, CAPI, GA4, GTM. Data galat hai to har decision galat hoga.</p></div>
+  <div class="card"><b>3. Campaign banana</b><p>Sahi objective, structure, budget aur bidding Meta/Google pe.</p></div>
+  <div class="card"><b>4. Creative strategy</b><p>Kaunsa message, hook, offer aur format kis audience ko jayega.</p></div>
+  <div class="card"><b>5. Optimize karna</b><p>Numbers padh ke decide karna: kya band karein, kya scale karein, kya test karein.</p></div>
+  <div class="card"><b>6. Report aur explain</b><p>Client/boss ko simple bhasha mein batana ki paisa kahan gaya aur aage kya plan hai.</p></div>
+</div>
+
+<h3 id="m0-2026"><span class="tn">0.2</span>2026 mein game kaise badla hai</h3>
+<p>Pichhle 2-3 saal mein platforms ne bahut kuch automate kar diya hai. Ye samajhna zaroori hai warna aap purane tutorials se purani strategy seekh loge:</p>
+<ul>
+  <li><strong>Targeting AI ke paas chali gayi hai.</strong> Meta ka Andromeda system aur Advantage+ ab khud decide karte hain ki ad kise dikhana hai. Interest-stacking jaisi cheezein ab utna kaam nahi karti.</li>
+  <li><strong>Creative hi naya targeting hai.</strong> Ad mein kya bola, kaise dikhaya, kis problem ko pakda, isi se algorithm samajhta hai ki ad kis type ke logon ka hai.</li>
+  <li><strong>Google Search bhi AI-first ho gaya.</strong> AI Max for Search 2026 mein beta se bahar aa gaya aur Dynamic Search Ads ko replace kar raha hai. Ads ab AI Overviews aur AI Mode mein bhi dikh rahe hain.</li>
+  <li><strong>Data quality = performance.</strong> Jo advertiser server-side tracking (CAPI, Enhanced Conversions) aur saaf conversion data bhejta hai, AI usi ke liye better kaam karta hai.</li>
+  <li><strong>Privacy rules strict hain.</strong> Consent Mode, cookie restrictions, India mein DPDP Act. Tracking ab "install karo aur bhool jao" nahi raha.</li>
+</ul>
+<div class="box tip"><h5>Is course ka mindset</h5>
+<p>Buttons aur settings har 6 mahine badalte hain. Isliye har topic mein pehle <strong>"kyun"</strong> samjhaya gaya hai, phir <strong>"kaise"</strong>. Fundamentals (metrics, psychology, funnel, testing) 10 saal baad bhi same rahenge. Settings ka exact naam badle to Google karke dhoondh lena, logic yahi rahega.</p></div>
+
+<h3 id="m0-how"><span class="tn">0.3</span>Is course ko kaise padhein</h3>
+<ol>
+  <li><strong>Order mein padho.</strong> Module 1 (metrics) skip mat karna. Baaki sab isi pe khada hai.</li>
+  <li><strong>Har module ke end mein Practice Task hai.</strong> Use karna compulsory samjho. Padhne se 20% aata hai, karne se 80%.</li>
+  <li><strong>Self-check questions</strong> khol ke answer dekhne se pehle khud answer socho.</li>
+  <li><strong>₹1,000–3,000 ka apna test budget</strong> rakho. Apne ya kisi dost ke business ke liye real ads chalao. Sabse zyada seekh wahin milegi.</li>
+  <li>Module complete hone pe neeche <strong>"Mark complete"</strong> dabao. Upar progress bar update hoga (ye aapke browser mein save rehta hai).</li>
+</ol>
+
+<h3 id="m0-tools"><span class="tn">0.4</span>Tools jo setup kar lene chahiye</h3>
+<div class="tbl"><table>
+<tr><th>Tool</th><th>Kis kaam ka</th><th>Cost</th></tr>
+<tr><td>Meta Business Suite / Business Manager</td><td>Facebook-Instagram ads, pixel, page access</td><td>Free</td></tr>
+<tr><td>Google Ads account</td><td>Search, PMax, YouTube ads, Keyword Planner</td><td>Free (ads ka spend alag)</td></tr>
+<tr><td>Google Analytics 4</td><td>Website pe kya ho raha hai, kahan se traffic aaya</td><td>Free</td></tr>
+<tr><td>Google Tag Manager</td><td>Bina developer ke tracking codes lagana</td><td>Free</td></tr>
+<tr><td>Meta Ad Library</td><td>Competitors ke chal rahe ads dekhna (research)</td><td>Free</td></tr>
+<tr><td>Google Sheets</td><td>Reporting, calculations, tracker</td><td>Free</td></tr>
+<tr><td>Canva / CapCut</td><td>Static aur video creatives banana</td><td>Free + paid</td></tr>
+<tr><td>Ek AI assistant (ChatGPT / Claude / Gemini)</td><td>Research, copy, analysis (Module 6)</td><td>Free + paid</td></tr>
+<tr><td>Ek test website (WordPress / Shopify trial)</td><td>Tracking practice ke liye</td><td>Low</td></tr>
+</table></div>
+
+<div class="done-row"><button class="done-btn" data-mod="m0" aria-pressed="false">Mark complete</button></div>
+</section>
+
+
+<section class="module" id="m1" data-title="Marketing Fundamentals & Key Metrics">
+<div class="mod-head"><span class="mod-num">MODULE 01 · STEP 1</span><span class="mod-time">Week 1–2 · ~10 ghante</span></div>
+<h2>Marketing Fundamentals &amp; Key Metrics</h2>
+<p>Ye course ka sabse important module hai. Jo marketer numbers nahi samajhta, wo "ads operator" hai. Jo numbers samajhta hai, wo "growth partner" hai aur usko 3-5x zyada paisa milta hai.</p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Customer journey aur funnel ke har stage ke liye sahi campaign soch paoge</li>
+<li>Customer psychology ke principles ads aur landing pages mein use kar paoge</li>
+<li>CAC, LTV, AOV, margin, break-even ROAS, payback period khud calculate kar paoge</li>
+<li>Kisi bhi ad account ke numbers dekh ke bata paoge ki problem kahan hai</li>
+</ul></div>
+
+<h3 id="m1-funnel"><span class="tn">1.1</span>Customer Journey &amp; Marketing Funnel</h3>
+<p>Koi bhi insaan pehli baar aapka ad dekh ke turant nahi khareedta (sasta impulse product chhod ke). Wo kuch stages se guzarta hai. In stages ko <strong>funnel</strong> kehte hain kyunki har stage pe log kam hote jaate hain.</p>
+<div class="funnel">
+  <div style="width:100%"><b>TOFU · Awareness</b> — "Mujhe ye problem hai / ye cheez exist karti hai"</div>
+  <div style="width:84%"><b>MOFU · Consideration</b> — "Kaunsa option best hai? Reviews kya kehte hain?"</div>
+  <div style="width:66%"><b>BOFU · Conversion</b> — "Abhi khareedta hoon / form bharta hoon"</div>
+  <div style="width:50%"><b>Retention</b> — "Phir se khareedunga"</div>
+  <div style="width:38%"><b>Advocacy</b> — "Doston ko bataunga"</div>
+</div>
+
+<div class="tbl"><table>
+<tr><th>Stage</th><th>Customer ka mindset</th><th>Kya dikhana hai</th><th>Kaunsa metric dekhna hai</th></tr>
+<tr><td>TOFU</td><td>Problem ka pata hai, solution ka nahi</td><td>Problem-relatable content, education, brand story, hook-heavy reels</td><td>CPM, reach, hook rate, ThruPlay, CTR</td></tr>
+<tr><td>MOFU</td><td>Options compare kar raha hai</td><td>Benefits, demo, comparison, testimonials, UGC</td><td>CTR, landing page views, add to cart, cost per lead</td></tr>
+<tr><td>BOFU</td><td>Khareedne ke kareeb</td><td>Offer, urgency, guarantee, COD/easy returns, reviews</td><td>CVR, CPA, ROAS</td></tr>
+<tr><td>Retention</td><td>Already customer hai</td><td>Cross-sell, refill reminder, loyalty, WhatsApp/email</td><td>Repeat rate, LTV</td></tr>
+</table></div>
+
+<h4>Awareness ke 5 levels (Eugene Schwartz ka model)</h4>
+<p>Ye ek purana copywriting framework hai jo aaj bhi ad likhne mein bahut kaam aata hai. Customer jis level pe hai, ad ki opening wahin se karni padti hai:</p>
+<ol>
+<li><strong>Unaware</strong> — Problem ka bhi pata nahi. Ad ko story ya relatable situation se kholo. ("Roz subah baal jhadte hain aur aap sochte ho weather hai?")</li>
+<li><strong>Problem aware</strong> — Problem pata hai, solution nahi. Problem ko naam do aur empathy dikhao.</li>
+<li><strong>Solution aware</strong> — Solutions pata hain, aapka brand nahi. Batao aapka solution alag/better kyun hai.</li>
+<li><strong>Product aware</strong> — Aapko jaanta hai, convince nahi hua. Proof, reviews, demo, guarantee.</li>
+<li><strong>Most aware</strong> — Khareedne ko ready. Seedha offer: "Aaj 20% off, free delivery."</li>
+</ol>
+<div class="box tip"><h5>Practical rule</h5><p>Cold audience (jisne aapko kabhi nahi dekha) ko "Buy now 20% off" dikhana sabse common galti hai. Unke liye problem/story wala ad. Retargeting audience (jo site visit kar chuke) ke liye offer wala ad.</p></div>
+
+<h4>Funnel ka modern sach: ye seedhi line nahi hai</h4>
+<p>Google isko <strong>"messy middle"</strong> kehta hai. Customer Instagram reel dekhta hai, phir Google pe search karta hai, YouTube review dekhta hai, Amazon pe price compare karta hai, WhatsApp pe dost se poochta hai, phir 5 din baad direct website pe aake khareedta hai. Isliye:</p>
+<ul>
+<li>Ek hi platform ko poora credit dena galat hai (attribution Module 4 mein detail mein).</li>
+<li>Meta aur Google ek dusre ke competitor nahi, partner hain. Meta demand <em>create</em> karta hai, Google Search demand <em>capture</em> karta hai.</li>
+<li>Har touchpoint pe brand ka message consistent hona chahiye.</li>
+</ul>
+
+<h3 id="m1-psych"><span class="tn">1.2</span>Customer Psychology</h3>
+<p>Log logic se justify karte hain, par emotion se khareedte hain. Ye principles har ad, landing page aur offer mein use honge:</p>
+<div class="tbl"><table>
+<tr><th>Principle</th><th>Matlab</th><th>Ad/landing page mein use</th></tr>
+<tr><td><strong>Social proof</strong></td><td>Dusre kar rahe hain to sahi hoga</td><td>"12,500+ happy customers", star ratings, UGC videos, "Bhopal ke 200 ghar mein laga"</td></tr>
+<tr><td><strong>Scarcity</strong></td><td>Kam cheez zyada valuable lagti hai</td><td>"Sirf 40 pieces bache", limited edition. <em>Sach hona chahiye</em>, fake scarcity se trust tootta hai</td></tr>
+<tr><td><strong>Urgency</strong></td><td>Deadline action karwati hai</td><td>"Offer Sunday raat 12 baje tak", festive sale countdown</td></tr>
+<tr><td><strong>Loss aversion</strong></td><td>Khone ka dar, paane ki khushi se ~2x strong hota hai</td><td>"Har mahine ₹800 bijli bill mein waste kar rahe ho" vs "₹800 bachao"</td></tr>
+<tr><td><strong>Authority</strong></td><td>Expert ki baat pe bharosa</td><td>Doctor/expert endorsement, certifications, "ISO certified", media mentions</td></tr>
+<tr><td><strong>Reciprocity</strong></td><td>Kuch free mila to wapas dene ka mann</td><td>Free guide, free consultation, free sample, free audit</td></tr>
+<tr><td><strong>Anchoring</strong></td><td>Pehla number baaki ko judge karne ka base banta hai</td><td><s>₹2,999</s> ₹1,499 dikhana; premium plan pehle dikhana</td></tr>
+<tr><td><strong>Commitment &amp; consistency</strong></td><td>Chhota yes, bade yes tak le jata hai</td><td>Quiz → result → product; multi-step forms; free trial</td></tr>
+<tr><td><strong>Risk reversal</strong></td><td>Risk hata do to decision aasaan</td><td>COD, 7-day return, money-back guarantee, "pehle try karo"</td></tr>
+<tr><td><strong>Choice overload</strong></td><td>Zyada options = koi decision nahi</td><td>Landing page pe 1 product, 1 CTA; 3 se zyada plans mat dikhao</td></tr>
+</table></div>
+
+<h4>Jobs To Be Done (JTBD)</h4>
+<p>Customer product nahi, <strong>progress</strong> khareedta hai. Drill machine nahi, deewar mein ched chahiye. Ched bhi nahi, family photo deewar pe chahiye. Ad likhne se pehle ye 3 sawaal poocho:</p>
+<ol>
+<li><strong>Functional job:</strong> Practically kya kaam hona chahiye? (Paani soft ho jaye)</li>
+<li><strong>Emotional job:</strong> Kaisa feel karna chahta hai? (Baal aur skin ki tension khatam)</li>
+<li><strong>Social job:</strong> Dusre use kaise dekhein? (Smart, family ka khayal rakhne wala)</li>
+</ol>
+
+<h4>Indian market ki khaas psychology</h4>
+<ul>
+<li><strong>Value-seeking:</strong> "Paisa vasool" feeling zaroori. Combo offers, free gift, "₹X per day" framing kaam karti hai.</li>
+<li><strong>Trust deficit online:</strong> Naye brand pe bharosa kam. COD option, real customer videos, physical address, GST number, WhatsApp support conversion badhate hain.</li>
+<li><strong>Family decision:</strong> Bade purchase (education, home, car) mein family involved. Ad mein family angle aur "ghar walon ko dikhao" type share-friendly content.</li>
+<li><strong>Festive calendar:</strong> Diwali, Navratri, wedding season, Raksha Bandhan, Holi, end-of-season sale. CPM inn dino badhta hai, par buying intent bhi.</li>
+<li><strong>Language:</strong> Tier 2/3 cities mein Hinglish ya regional language ke ads aksar English se better perform karte hain. Test karo.</li>
+</ul>
+
+<h3 id="m1-revprofit"><span class="tn">1.3</span>Revenue vs Profit</h3>
+<p>Ye confusion bahut business barbaad karta hai. <strong>Revenue</strong> = jo paisa aaya (sales). <strong>Profit</strong> = sab kharche nikaal ke jo bacha. ₹10 lakh ki sale ho sakti hai aur fir bhi loss ho sakta hai.</p>
+<div class="formula"><span class="lbl">Profit ki seedhi</span>
+Revenue (sale)<br>
+− COGS (product banane/khareedne ka cost)<br>
+= <b>Gross Profit</b><br>
+− Shipping, packaging, payment gateway fee, COD charges, returns/RTO loss<br>
+= <b>Contribution (ad se pehle)</b><br>
+− Ad spend<br>
+= <b>Contribution after marketing</b><br>
+− Fixed costs (rent, salary, software)<br>
+= <b>Net Profit</b></div>
+<div class="box example"><h5>Example: ek skincare D2C brand ka mahina</h5>
+<div class="tbl" style="margin:8px 0 0"><table>
+<tr><th>Item</th><th class="num">₹</th></tr>
+<tr><td>Revenue (1,000 orders × ₹1,500)</td><td class="num">15,00,000</td></tr>
+<tr><td>COGS (30%)</td><td class="num">− 4,50,000</td></tr>
+<tr><td><strong>Gross profit</strong></td><td class="num"><strong>10,50,000</strong></td></tr>
+<tr><td>Shipping + packaging (₹120/order)</td><td class="num">− 1,20,000</td></tr>
+<tr><td>Payment fee + COD + RTO loss (₹130/order)</td><td class="num">− 1,30,000</td></tr>
+<tr><td><strong>Contribution before ads</strong></td><td class="num"><strong>8,00,000</strong></td></tr>
+<tr><td>Ad spend</td><td class="num">− 6,00,000</td></tr>
+<tr><td><strong>Contribution after ads</strong></td><td class="num"><strong>2,00,000</strong></td></tr>
+<tr><td>Fixed costs</td><td class="num">− 2,50,000</td></tr>
+<tr><td><strong>Net profit</strong></td><td class="num" style="color:var(--red)"><strong>− 50,000</strong></td></tr>
+</table></div>
+<p style="margin-top:10px">Ad manager mein ROAS = 15,00,000 / 6,00,000 = <strong>2.5x</strong> dikhega aur sab khush honge. Par business loss mein hai. Isliye performance marketer ko poori seedhi pata honi chahiye.</p></div>
+
+<h3 id="m1-cac"><span class="tn">1.4</span>CAC — Customer Acquisition Cost</h3>
+<p>Ek naya customer laane mein kitna kharcha hua.</p>
+<div class="formula"><span class="lbl">Formula</span><b>CAC</b> = Total marketing + sales cost ÷ Naye customers ki sankhya</div>
+<p>Example: Mahine mein ₹3,00,000 ads pe, ₹50,000 agency fee, 500 naye customers → CAC = 3,50,000 / 500 = <strong>₹700</strong>.</p>
+<ul>
+<li><strong>CPA vs CAC:</strong> CPA (cost per acquisition) platform ka number hai, sirf ad spend ÷ conversions. CAC business ka number hai, saare acquisition kharche ÷ sirf <em>naye</em> customers. CAC hamesha CPA se zyada ya barabar hota hai.</li>
+<li><strong>Blended CAC</strong> = total marketing spend ÷ total naye customers (organic waale bhi). <strong>Paid CAC</strong> = sirf paid spend ÷ paid se aaye naye customers. Dono track karo.</li>
+</ul>
+
+<h3 id="m1-ltv"><span class="tn">1.5</span>LTV — Lifetime Value</h3>
+<p>Ek customer poori zindagi (relationship) mein aapko kitna value deta hai. Ye batata hai ki aap ek customer laane pe <em>maximum</em> kitna kharch kar sakte ho.</p>
+<div class="formula"><span class="lbl">Simple LTV (revenue)</span><b>LTV</b> = AOV × Saal mein kitni baar khareeda × Kitne saal customer raha</div>
+<div class="formula"><span class="lbl">Sahi LTV (margin based, isi ko use karo)</span><b>LTV</b> = AOV × Purchase frequency × Lifespan × Contribution margin %</div>
+<p>Example: AOV ₹1,500, saal mein 3 baar, 2 saal tak, contribution margin 53% → LTV = 1,500 × 3 × 2 × 0.53 = <strong>₹4,770</strong>.</p>
+<div class="box warn"><h5>Dhyan rakho</h5><ul>
+<li>Naye business ke paas 2 saal ka data nahi hota. Tab 90-day ya 180-day LTV use karo (pehle 90 din mein ek customer ne average kitna kharch kiya).</li>
+<li>Services (coaching, real estate, construction) mein aksar ek hi sale hoti hai. Wahan LTV ≈ ek deal ka margin + referral value.</li>
+<li>LTV future ka andaza hai, guarantee nahi. Isse conservatively lo.</li>
+</ul></div>
+
+<h3 id="m1-aov"><span class="tn">1.6</span>AOV — Average Order Value</h3>
+<div class="formula"><span class="lbl">Formula</span><b>AOV</b> = Total revenue ÷ Total orders</div>
+<p>AOV badhana sabse aasaan profit lever hai, kyunki ek order laane ka ad cost same rehta hai, par order bada ho jata hai.</p>
+<h4>AOV badhane ke tareeke</h4>
+<ul>
+<li><strong>Bundles/combos:</strong> "Shampoo + conditioner + serum kit" — single product se 30-40% zyada AOV.</li>
+<li><strong>Free shipping threshold:</strong> Current AOV ₹800 hai to free shipping ₹999 pe rakho.</li>
+<li><strong>Quantity discount:</strong> "2 lo 10% off, 3 lo 20% off".</li>
+<li><strong>Upsell/cross-sell:</strong> Cart ya checkout pe "Isse saath mein log ye bhi lete hain".</li>
+<li><strong>Free gift above X:</strong> "₹1,499 se upar free travel pouch".</li>
+</ul>
+
+<h3 id="m1-margin"><span class="tn">1.7</span>Gross Margin &amp; Contribution Margin</h3>
+<div class="formula"><span class="lbl">Gross margin %</span>(Revenue − COGS) ÷ Revenue × 100</div>
+<div class="formula"><span class="lbl">Contribution margin % (ads se pehle)</span>(Revenue − COGS − saare variable costs per order) ÷ Revenue × 100<br>
+Variable costs = shipping, packaging, payment gateway, COD fee, RTO/return loss, marketplace commission</div>
+<p>Upar wale example mein: gross margin = 70%, contribution margin = 8,00,000 / 15,00,000 = <strong>53.3%</strong>.</p>
+<div class="box tip"><h5>Kyun zaroori hai</h5><p>Contribution margin hi batata hai ki ads ke liye kitni "jagah" hai. 70% margin waale product (skincare, digital course) ke liye ads aasaan hain. 15% margin waale product (electronics reselling) pe paid ads se profit nikalna bahut mushkil hai. Client lene se pehle hi ye check karo.</p></div>
+
+<h3 id="m1-ltvcac"><span class="tn">1.8</span>LTV : CAC Ratio</h3>
+<div class="formula"><span class="lbl">Formula</span><b>LTV : CAC</b> = LTV (margin-based) ÷ CAC</div>
+<div class="tbl"><table>
+<tr><th>Ratio</th><th>Matlab</th><th>Action</th></tr>
+<tr><td>&lt; 1 : 1</td><td>Har customer pe loss</td><td>Turant fix: offer, pricing, CVR, ya targeting</td></tr>
+<tr><td>1 : 1 – 2 : 1</td><td>Survive kar rahe ho, grow nahi</td><td>Retention aur AOV pe kaam</td></tr>
+<tr><td>~3 : 1</td><td>Healthy (industry ka common benchmark)</td><td>Dheere-dheere scale</td></tr>
+<tr><td>&gt; 5 : 1</td><td>Shayad kam spend kar rahe ho</td><td>Aggressively scale karo, market share le lo</td></tr>
+</table></div>
+<p>Example: LTV ₹4,770, CAC ₹700 → ratio ≈ <strong>6.8 : 1</strong>. Iska matlab business zyada aggressive ho sakta hai.</p>
+
+<h3 id="m1-beroas"><span class="tn">1.9</span>Break-even ROAS</h3>
+<p>Wo ROAS jis pe na profit na loss (sirf us order ke level pe). Iske neeche har sale pe paisa doob raha hai.</p>
+<div class="formula"><span class="lbl">Formula</span><b>Break-even ROAS</b> = 1 ÷ Contribution margin % (decimal mein)<br>
+<b>Break-even CPA</b> = AOV × Contribution margin %</div>
+<p>Example: Contribution margin 53.3% → BE ROAS = 1 / 0.533 = <strong>1.88x</strong>. Break-even CPA = 1,500 × 0.533 = <strong>₹800</strong>. Matlab ek order pe ₹800 tak ad pe kharch karo to zero profit; usse kam to profit.</p>
+<div class="tbl"><table>
+<tr><th>Contribution margin</th><th class="num">Break-even ROAS</th></tr>
+<tr><td>80%</td><td class="num">1.25x</td></tr>
+<tr><td>60%</td><td class="num">1.67x</td></tr>
+<tr><td>50%</td><td class="num">2.00x</td></tr>
+<tr><td>40%</td><td class="num">2.50x</td></tr>
+<tr><td>30%</td><td class="num">3.33x</td></tr>
+<tr><td>20%</td><td class="num">5.00x</td></tr>
+</table></div>
+<div class="box warn"><h5>Target ROAS kaise set karein</h5><p>Target ROAS = break-even ROAS se upar, jitna profit chahiye. Agar har order pe 15% net profit chahiye aur contribution margin 53% hai, to ad ke liye 53 − 15 = 38% bachta hai → target ROAS = 1 / 0.38 = <strong>2.63x</strong>. Agar business repeat customers pe chalta hai (high LTV), to first order pe break-even ya thoda loss bhi accept ho sakta hai.</p></div>
+
+<h3 id="m1-payback"><span class="tn">1.10</span>Payback Period</h3>
+<p>CAC ka paisa wapas aane mein kitne mahine lagte hain. Cash flow ke liye bahut zaroori, khaas karke chhote business ke liye jinke paas paisa limited hai.</p>
+<div class="formula"><span class="lbl">Formula</span><b>Payback (mahine)</b> = CAC ÷ Ek customer se har mahine milne wala contribution</div>
+<p>Example: CAC ₹700. Customer har 4 mahine mein ₹1,500 ka order karta hai (53% margin) → monthly contribution = 1,500 × 0.53 / 4 ≈ ₹199 → payback ≈ <strong>3.5 mahine</strong>. Pehle order se hi ₹800 contribution aata hai jo CAC se zyada hai, to asal mein payback <strong>pehle order pe hi</strong> ho gaya. Subscription/SaaS mein ye calculation sabse zyada use hoti hai. 12 mahine se kam payback ko generally healthy maana jata hai.</p>
+
+<h3 id="m1-adm"><span class="tn">1.11</span>Ad Metrics: CTR, CPC, CPM, CPA, CPL</h3>
+<div class="tbl"><table>
+<tr><th>Metric</th><th>Formula</th><th>Kya batata hai</th></tr>
+<tr><td><strong>Impressions</strong></td><td>Ad kitni baar dikha</td><td>Reach ≠ impressions. Reach = unique log, impressions = total views</td></tr>
+<tr><td><strong>Frequency</strong></td><td>Impressions ÷ Reach</td><td>Ek insaan ne average kitni baar dekha. Cold audience pe 3-4 se upar jaaye to fatigue aa sakti hai</td></tr>
+<tr><td><strong>CPM</strong></td><td>Spend ÷ Impressions × 1,000</td><td>1,000 baar ad dikhane ka cost. Audience ki competition aur ad quality batata hai</td></tr>
+<tr><td><strong>CTR</strong></td><td>Clicks ÷ Impressions × 100</td><td>Ad kitna interesting hai. Meta pe "Link CTR" dekho, "All CTR" nahi</td></tr>
+<tr><td><strong>CPC</strong></td><td>Spend ÷ Clicks</td><td>Ek click ka cost. CPM aur CTR dono pe depend</td></tr>
+<tr><td><strong>CVR</strong></td><td>Conversions ÷ Clicks × 100</td><td>Landing page + offer kitna strong hai</td></tr>
+<tr><td><strong>CPL</strong></td><td>Spend ÷ Leads</td><td>Lead gen business (real estate, education, services) ka main metric</td></tr>
+<tr><td><strong>CPA</strong></td><td>Spend ÷ Conversions</td><td>Ek desired action (purchase, signup) ka cost</td></tr>
+</table></div>
+
+<h4>Sabse powerful equation: sab metrics kaise jude hain</h4>
+<div class="formula"><span class="lbl">Funnel math</span><b>CPC</b> = CPM ÷ (1,000 × CTR)<br>
+<b>CPA</b> = CPC ÷ CVR = CPM ÷ (1,000 × CTR × CVR)</div>
+<p>Example: CPM ₹150, CTR 1.2%, CVR 2% → CPC = 150 / 12 = ₹12.5 → CPA = 12.5 / 0.02 = <strong>₹625</strong>.</p>
+<p>Ab dekho: agar CTR 1.2% se 1.8% ho jaye (better hook), CPA ₹417 ho jayega. Agar CVR 2% se 3% ho jaye (better landing page), CPA bhi ₹417. <strong>CPA kam karne ke teen hi lever hain: CPM, CTR, CVR.</strong> Har optimization in teeno mein se kisi ek ko hilati hai.</p>
+
+<h4>Diagnosis table: problem kahan hai?</h4>
+<div class="tbl"><table>
+<tr><th>Symptom</th><th>Possible reason</th><th>Kya karo</th></tr>
+<tr><td>CPM bahut high</td><td>Audience bahut chhoti, festive season, ad quality low, narrow targeting</td><td>Audience broad karo, naye creatives, placements open</td></tr>
+<tr><td>CTR low (&lt;0.8% Meta link CTR)</td><td>Hook kamzor, creative boring, galat audience</td><td>Naye hooks, pehle 3 second strong, alag angle</td></tr>
+<tr><td>CTR achha, CVR low</td><td>Landing page slow/confusing, ad aur page ka message match nahi, price shock, trust kam</td><td>Page speed, message match, reviews, COD, offer clear</td></tr>
+<tr><td>Add to cart achha, purchase kam</td><td>Checkout problem, shipping cost surprise, payment fail</td><td>Checkout test karo, shipping pehle batao, UPI/COD</td></tr>
+<tr><td>Leads aa rahe, quality kharab</td><td>Form bahut easy, galat audience, misleading ad</td><td>Higher intent form, qualifying questions, CRM data feedback</td></tr>
+<tr><td>Pehle chal raha tha, ab nahi</td><td>Creative fatigue (frequency badhi), seasonality, tracking toota</td><td>Frequency check, naye creatives, tracking test</td></tr>
+</table></div>
+
+<h3 id="m1-roas"><span class="tn">1.12</span>Conversion Rate &amp; ROAS (aur MER)</h3>
+<div class="formula"><span class="lbl">ROAS</span><b>ROAS</b> = Ad se aaya revenue ÷ Ad spend</div>
+<div class="formula"><span class="lbl">MER / Blended ROAS (business level)</span><b>MER</b> = Total revenue (sab channels) ÷ Total marketing spend</div>
+<ul>
+<li><strong>Platform ROAS pe aankh band karke bharosa mat karo.</strong> Meta aur Google dono ek hi sale ka credit le sakte hain (double counting). Isliye business level pe MER dekho.</li>
+<li><strong>ROAS ≠ profit.</strong> 4x ROAS bhi loss ho sakta hai agar margin 20% hai. Hamesha break-even ROAS se compare karo.</li>
+<li><strong>Conversion rate</strong> do tarah: ad level (conversions ÷ clicks) aur site level (orders ÷ sessions). Indian e-commerce mein site CVR aksar 1–3% ke beech rehta hai; category ke hisaab se kaafi badalta hai.</li>
+</ul>
+
+<h4>Incrementality: asli sawaal</h4>
+<p>"Kya ye sale ad ki wajah se hui, ya ye insaan waise bhi khareedta?" Retargeting aur brand search campaigns aksar high ROAS dikhate hain kyunki wo already-ready logon ko pakadte hain. Advanced teams isse <strong>lift tests / holdout tests</strong> se measure karti hain (ek group ko ads dikhao, dusre ko nahi, farak dekho). Meta aur Google dono mein conversion lift study ke options hain. Beginner level pe itna yaad rakho: <em>jitna lower funnel, utna kam incremental.</em></p>
+
+<div class="calc" id="calc1">
+<h5>Unit economics calculator</h5>
+<div class="inputs">
+<label for="c_aov">AOV (₹)<input id="c_aov" type="number" value="1500" min="0"></label>
+<label for="c_cogs">COGS per order (₹)<input id="c_cogs" type="number" value="450" min="0"></label>
+<label for="c_var">Shipping + fees + RTO per order (₹)<input id="c_var" type="number" value="250" min="0"></label>
+<label for="c_spend">Monthly ad spend (₹)<input id="c_spend" type="number" value="300000" min="0"></label>
+<label for="c_orders">Orders from ads<input id="c_orders" type="number" value="480" min="0"></label>
+<label for="c_rep">Orders per customer (lifetime)<input id="c_rep" type="number" value="3" min="1" step="0.1"></label>
+</div>
+<div class="out">
+<div>Contribution margin<b id="o_cm">–</b></div>
+<div>Break-even ROAS<b id="o_ber">–</b></div>
+<div>Break-even CPA<b id="o_bec">–</b></div>
+<div>Actual ROAS<b id="o_roas">–</b></div>
+<div>Actual CPA<b id="o_cpa">–</b></div>
+<div>LTV : CAC<b id="o_ltv">–</b></div>
+</div>
+<div class="verdict" id="o_verdict">–</div>
+</div>
+
+<div class="task"><h5>Practice task · Module 1</h5><ol>
+<li>Koi bhi ek business chuno (apna, client ka, ya kisi D2C brand ki website). Uska AOV, andaze se COGS, shipping cost likho.</li>
+<li>Ek Google Sheet banao: contribution margin, break-even ROAS, break-even CPA, target ROAS (15% profit ke liye).</li>
+<li>Meta Ad Library pe us brand ke 10 ads dekho. Har ad ko classify karo: TOFU/MOFU/BOFU, kaunsa psychology principle, awareness level kaunsa.</li>
+<li>Upar calculator mein apne numbers daal ke verdict dekho.</li>
+</ol></div>
+
+<details class="check"><summary>Self-check: 6 sawaal</summary><div class="in"><ol>
+<li>CPM ₹200, CTR 1%, CVR 2.5%. CPA kitna? <span class="ans">CPC = 200/10 = ₹20, CPA = 20/0.025 = ₹800.</span></li>
+<li>Contribution margin 40% hai. Break-even ROAS? <span class="ans">1/0.40 = 2.5x.</span></li>
+<li>ROAS 3x hai, contribution margin 25%. Profit ya loss? <span class="ans">BE ROAS = 4x. 3x usse kam hai, to har order pe loss.</span></li>
+<li>CPA aur CAC mein farak? <span class="ans">CPA = platform spend ÷ conversions (kisi bhi conversion). CAC = saare acquisition cost ÷ sirf naye customers.</span></li>
+<li>CTR 2.5% hai par CVR 0.3%. Problem kahan hai? <span class="ans">Ad interesting hai; problem landing page, offer, price ya ad-page message mismatch mein hai.</span></li>
+<li>Cold audience ko kis awareness level ka ad dikhaoge? <span class="ans">Unaware/problem-aware: story, relatable problem, education. Direct discount nahi.</span></li>
+</ol></div></details>
+
+<div class="done-row"><button class="done-btn" data-mod="m1" aria-pressed="false">Mark complete</button></div>
+</section>
+<section class="module" id="m2" data-title="Meta Ads (Facebook & Instagram)">
+<div class="mod-head"><span class="mod-num">MODULE 02 · STEP 2</span><span class="mod-time">Week 3–5 · ~18 ghante</span></div>
+<h2>Meta Ads: Facebook &amp; Instagram Advertising</h2>
+<p>India mein Meta (Facebook + Instagram + WhatsApp + Messenger) sabse bada demand-creation platform hai. D2C brand, local business, coaching, real estate, restaurants — almost har client ko Meta ads chahiye. Is module mein account setup se le ke scaling tak sab hai, 2026 ke Andromeda-era ke hisaab se.</p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Business Portfolio, ad account, pixel aur page ka sahi setup kar paoge</li>
+<li>Sahi objective aur campaign structure chun paoge</li>
+<li>Andromeda aur Advantage+ ke saath kaam karna samjhoge</li>
+<li>Lead aur sales campaigns chala paoge, retargeting aur custom audiences bana paoge</li>
+<li>Pixel + Conversions API ka concept aur setup samjhoge</li>
+</ul></div>
+
+<h3 id="m2-setup"><span class="tn">2.1</span>Account setup: Business Portfolio, Ad Account, Page</h3>
+<p>Ads chalane se pehle structure sahi hona chahiye, warna baad mein access, billing aur pixel ke jhagde hote hain.</p>
+<div class="tbl"><table>
+<tr><th>Cheez</th><th>Kya hai</th><th>Tip</th></tr>
+<tr><td><strong>Business Portfolio</strong> (pehle Business Manager)</td><td>Ek "office" jahan saare assets rehte hain: pages, ad accounts, pixels, catalogs, log</td><td>Hamesha client ke naam ka portfolio client ke owner banaye. Agency ko "partner" access do. Isse ownership client ke paas rehti hai</td></tr>
+<tr><td><strong>Ad Account</strong></td><td>Jahan campaigns bante hain aur billing hoti hai</td><td>Currency (INR) aur time zone baad mein nahi badalte. Pehli baar sahi chuno</td></tr>
+<tr><td><strong>Facebook Page + Instagram account</strong></td><td>Ad kis naam se chalega (identity)</td><td>Instagram professional account ko page se link karo</td></tr>
+<tr><td><strong>Dataset (Pixel)</strong></td><td>Website/app events ka data</td><td>Ek business = ek main dataset. Baar-baar naya pixel mat banao</td></tr>
+<tr><td><strong>Domain verification</strong></td><td>Proof ki website aapki hai</td><td>DNS TXT record ya meta-tag se verify karo</td></tr>
+<tr><td><strong>Payment method</strong></td><td>Card, UPI, net banking, prepaid funds</td><td>India mein ad spend pe GST lagta hai; GST number add karo taaki invoice sahi bane</td></tr>
+</table></div>
+<div class="box mistake"><h5>Common galtiyan</h5><ul>
+<li>Personal profile se "Boost post" karna aur use ads samajhna. Boost ke options bahut limited hain; asli kaam Ads Manager mein hota hai.</li>
+<li>Naye ad account pe pehle din ₹20,000 kharch karna. Naye accounts pe spending limit aur review strict hote hain; dheere badhao.</li>
+<li>Two-factor authentication on na karna. Hacked accounts India mein bahut common hain.</li>
+</ul></div>
+
+<h3 id="m2-adsmanager"><span class="tn">2.2</span>Ads Manager ko samajhna</h3>
+<p>Ads Manager mein teen tabs hain: <strong>Campaigns</strong>, <strong>Ad sets</strong>, <strong>Ads</strong>. Har level ke apne columns hote hain.</p>
+<ul>
+<li><strong>Columns customize karo.</strong> Default "Performance" column set bekaar hai. Ek custom set banao: Delivery, Amount spent, Impressions, Reach, Frequency, CPM, Link clicks, CTR (link), CPC (link), Landing page views, Adds to cart, Purchases, Cost per purchase, Purchase conversion value, ROAS. Lead gen ke liye Leads, Cost per lead.</li>
+<li><strong>Breakdown</strong> button se age, gender, placement, region, time of day ke hisaab se data dekho.</li>
+<li><strong>Compare / date range:</strong> Hamesha last 7 din vs pichhle 7 din dekho, sirf aaj ka nahi. Meta ka data 24-72 ghante tak update hota rehta hai.</li>
+<li><strong>Attribution setting:</strong> Default 7-day click + 1-day view hai. Reports mein "Compare attribution settings" se dekh sakte ho kitni sales click se aayi aur kitni view se.</li>
+<li><strong>Experiments</strong> section mein A/B test aur conversion lift ke tools hain.</li>
+</ul>
+
+<h3 id="m2-structure"><span class="tn">2.3</span>Campaign → Ad Set → Ad, aur Objectives</h3>
+<div class="tbl"><table>
+<tr><th>Level</th><th>Yahan kya decide hota hai</th></tr>
+<tr><td><strong>Campaign</strong></td><td>Objective (aap kya result chahte ho), budget (agar Advantage campaign budget on hai), special ad category, A/B test</td></tr>
+<tr><td><strong>Ad Set</strong></td><td>Conversion location (website/app/WhatsApp/form), optimization event, audience, placements, schedule, budget (agar ad set level budget), bid strategy</td></tr>
+<tr><td><strong>Ad</strong></td><td>Creative (image/video/carousel), primary text, headline, CTA, destination URL, tracking (UTM, pixel)</td></tr>
+</table></div>
+
+<h4>6 objectives (ODAX)</h4>
+<div class="tbl"><table>
+<tr><th>Objective</th><th>Meta kisko dhoondhega</th><th>Kab use karo</th></tr>
+<tr><td><strong>Awareness</strong></td><td>Jo ad dekhenge aur yaad rakhenge (reach, ad recall)</td><td>Naya launch, local store ki visibility, brand recall. Sales expect mat karo</td></tr>
+<tr><td><strong>Traffic</strong></td><td>Jo click karte hain</td><td>Blog/content promotion, retargeting pool banana. Sales ke liye mat use karo — Meta clicker dhoondhega, buyer nahi</td></tr>
+<tr><td><strong>Engagement</strong></td><td>Like/comment/share/video view/message karne wale</td><td>Video views (retargeting audience banana), <strong>WhatsApp/Messenger/Instagram DM conversations</strong></td></tr>
+<tr><td><strong>Leads</strong></td><td>Form bharne ya call/message karne wale</td><td>Real estate, coaching, B2B, services, clinics</td></tr>
+<tr><td><strong>App promotion</strong></td><td>App install / in-app action</td><td>Apps</td></tr>
+<tr><td><strong>Sales</strong></td><td>Purchase karne wale (ya jo bhi conversion event chuno)</td><td>E-commerce, D2C, high-value lead events</td></tr>
+</table></div>
+<div class="box tip"><h5>Golden rule</h5><p>Meta wahi deta hai jo aap maangte ho. Traffic maangoge to clicks milenge, sales nahi. Jo business result chahiye, wahi optimization event chuno. Agar sale chahiye aur pixel pe purchase event hai, to Sales objective + Purchase optimization.</p></div>
+
+<h3 id="m2-andromeda"><span class="tn">2.4</span>Andromeda aur Advantage+ (2026 ka sabse bada badlav)</h3>
+<p><strong>Andromeda</strong> Meta ka naya ad-retrieval system hai jo December 2024 mein announce hua aur 2025-26 mein poori tarah roll out hua. Ye har ad ke creative ko (visual, text, angle, format) samajhta hai aur use un logon se match karta hai jo us message pe react karenge. Ye koi setting nahi hai jise aap on/off karo; ye Meta delivery ka base infrastructure hai.</p>
+<p><strong>Advantage+</strong> Meta ke automation features ka naam hai: Advantage+ audience, Advantage+ placements, Advantage campaign budget, Advantage+ creative, aur poore Advantage+ campaigns (Sales, App, Leads). 2025 se Sales, App aur Leads campaigns by default Advantage+ setup pe bante hain. "Advantage+ Shopping Campaigns" ka naam badal ke <strong>Advantage+ Sales campaigns</strong> ho gaya hai.</p>
+<div class="tbl"><table>
+<tr><th>Purana tarika (2020–23)</th><th>Andromeda era (2025–26+)</th></tr>
+<tr><td>Bahut saare ad sets, har ek mein alag interest</td><td>Kam campaigns, kam ad sets, broad audience</td></tr>
+<tr><td>Targeting se performance aata tha</td><td>Creative se performance aata hai</td></tr>
+<tr><td>Ek ad ke 20 chhote variations (colour, button)</td><td>Genuinely alag-alag creatives: alag angle, alag format, alag persona</td></tr>
+<tr><td>Har din campaign edit karna</td><td>Patience: learning phase ko time dena</td></tr>
+<tr><td>Manual placements</td><td>Advantage+ placements (sab placements)</td></tr>
+</table></div>
+<div class="box new"><h5>2026 updates jo pata hone chahiye</h5><ul>
+<li>Advantage+ audience mein detailed targeting ab <strong>suggestion</strong> ki tarah treat hoti hai, hard limit ki tarah nahi.</li>
+<li>Advantage+ Sales campaigns mein ab multiple ad sets bana sakte ho (pehle sirf ek hota tha).</li>
+<li>Ad sequencing (pehle ad A dikhao, phir ad B) Feb 2026 se Awareness aur Engagement objectives ke normal auction campaigns mein aaya.</li>
+<li>Value Optimization (zyada kharch karne wale buyers dhoondhna) ab kam data pe bhi stable ho sakta hai.</li>
+</ul></div>
+<div class="box warn"><h5>Andromeda ka matlab "kuch mat karo" nahi hai</h5><p>Automation ko achha <em>input</em> chahiye: saaf conversion data (Pixel + CAPI), kaafi conversions (roughly 50 optimization events per ad set per week learning phase se nikalne ke liye), aur variety wale creatives. Aapka kaam ab "button dabana" se shift ho ke <strong>signal quality aur creative strategy</strong> pe aa gaya hai.</p></div>
+
+<h3 id="m2-audience"><span class="tn">2.5</span>Audience Targeting</h3>
+<h4>Teen tarah ki audiences</h4>
+<div class="cards">
+<div class="card"><b>Broad / Advantage+ audience</b><p>Sirf location, age (minimum) aur language. Baaki Meta pe chhodo. Mature accounts mein prospecting ka default.</p></div>
+<div class="card"><b>Detailed targeting</b><p>Interests, behaviours, demographics. Naye account, chhota budget ya bahut niche B2B product mein starting point ki tarah useful.</p></div>
+<div class="card"><b>Custom &amp; Lookalike</b><p>Aapke apne data se (website visitors, customers list, video viewers). Retargeting aur seed ke liye.</p></div>
+</div>
+
+<h4>Kab kya use karein (practical decision)</h4>
+<div class="tbl"><table>
+<tr><th>Situation</th><th>Recommended</th></tr>
+<tr><td>Naya pixel, 0 conversions, chhota budget (₹500–1,500/din)</td><td>Ek campaign, 1–2 ad sets. Location + age + 3–5 relevant interests (as suggestion) ya broad. Optimize for higher-funnel event (add to cart / lead) agar purchase bahut kam hain</td></tr>
+<tr><td>Account mein 50+ purchases/week</td><td>Advantage+ Sales campaign, broad, 8–15 diverse creatives</td></tr>
+<tr><td>Local business (5 km radius)</td><td>Location radius + broad. Audience already chhoti hai, aur narrow mat karo</td></tr>
+<tr><td>B2B niche (e.g. industrial pumps)</td><td>Job title/industry interests + lookalike of customer list. Lead form mein qualifying questions</td></tr>
+<tr><td>High-ticket (₹5 lakh+ ka product)</td><td>Broad ya income-proxy interests + strong qualifying lead form + CRM se lead quality feedback</td></tr>
+</table></div>
+
+<h4>Location targeting ke options</h4>
+<ul>
+<li><strong>People living in or recently in this location</strong> (default, sahi hai zyada cases mein)</li>
+<li>Pin code / city / radius targeting. Local business ke liye radius 3–10 km.</li>
+<li>Exclude karo jahan delivery nahi hoti.</li>
+</ul>
+
+<h3 id="m2-placements"><span class="tn">2.6</span>Placements</h3>
+<p>Ad kahan dikhega: Facebook Feed, Instagram Feed, Stories, Reels, Explore, Messenger, Marketplace, Audience Network, Threads, search results, etc.</p>
+<ul>
+<li><strong>Default: Advantage+ placements on rakho.</strong> Meta wahan budget daalega jahan result sasta mil raha hai.</li>
+<li><strong>Creative har placement ke liye ready karo:</strong> 9:16 (Reels/Stories), 4:5 (Feed), 1:1 (backup). Agar sirf 1:1 dooge to Reels mein ad ajeeb dikhega aur perform nahi karega.</li>
+<li><strong>Safe zones:</strong> Reels/Stories mein upar ~14% aur neeche ~20-35% area mein text mat rakho, wahan UI (username, buttons, caption) aata hai.</li>
+<li>Manual placements tabhi jab koi strong reason ho: brand safety, Audience Network pe fake clicks/leads aa rahe hon, ya creative sirf ek format mein hai.</li>
+</ul>
+<div class="box mistake"><h5>Lead gen mein dhyan</h5><p>Audience Network kabhi-kabhi lead campaigns mein bahut saste par low-quality leads laata hai (accidental clicks). Lead quality kharab lage to breakdown → placement dekho aur zarurat ho to Audience Network exclude karo.</p></div>
+
+<h3 id="m2-budget"><span class="tn">2.7</span>Budgeting &amp; Bidding</h3>
+<h4>Budget kahan set karein</h4>
+<div class="tbl"><table>
+<tr><th>Type</th><th>Kaise kaam karta hai</th><th>Kab use</th></tr>
+<tr><td><strong>Advantage campaign budget</strong> (pehle CBO)</td><td>Budget campaign level pe, Meta khud ad sets mein baantta hai</td><td>Default. Scaling aur stable campaigns ke liye</td></tr>
+<tr><td><strong>Ad set budget</strong> (ABO)</td><td>Har ad set ka fixed budget</td><td>Testing (har creative/audience ko barabar paisa), jab control chahiye</td></tr>
+<tr><td>Daily vs Lifetime</td><td>Daily = roz ka limit (ek din mein ~75% tak upar ja sakta hai, week mein average hota hai). Lifetime = poore period ka</td><td>Lifetime: sale/event jiski fixed dates hain, ya dayparting chahiye</td></tr>
+</table></div>
+
+<h4>Kitna budget chahiye? (minimum logic)</h4>
+<div class="formula"><span class="lbl">Rule of thumb</span>Daily budget per ad set ≥ Target CPA × 50 ÷ 7<br>
+Example: Target CPA ₹500 → 500 × 50 / 7 ≈ <b>₹3,570/din</b> learning phase jaldi exit karne ke liye</div>
+<p>Itna budget nahi hai? Koi baat nahi. Options: (1) kam ad sets rakho taaki saara data ek jagah aaye, (2) higher-funnel event pe optimize karo (Add to Cart, Initiate Checkout, Lead) jo zyada baar hota hai, (3) "Learning limited" status accept karo; campaign phir bhi results de sakta hai.</p>
+
+<h4>Learning phase</h4>
+<ul>
+<li>Naya ad set ya bada edit hone pe Meta "learning" mein jata hai. Is dauran results unstable hote hain.</li>
+<li>Learning reset hoti hai jab: creative add/edit, targeting change, optimization event change, budget mein bada change (roughly 20-30% se zyada ek baar mein), bid strategy change, 7+ din pause.</li>
+<li>Rule: <strong>edits ko batch karo</strong> aur har 2-3 din mein ek baar karo, roz nahi. Naye campaign ko kam se kam 3-7 din do judge karne se pehle.</li>
+</ul>
+
+<h4>Bid strategies</h4>
+<div class="tbl"><table>
+<tr><th>Strategy</th><th>Matlab</th><th>Kab</th></tr>
+<tr><td><strong>Highest volume</strong> (lowest cost)</td><td>Budget mein maximum results</td><td>Default, starting point</td></tr>
+<tr><td><strong>Cost per result goal</strong> (cost cap)</td><td>Average CPA is target ke aas paas rakho</td><td>Jab CPA control zaroori ho; target bahut tight rakhoge to spend nahi hoga</td></tr>
+<tr><td><strong>ROAS goal</strong> (min ROAS)</td><td>Har sale pe minimum ROAS</td><td>E-commerce with purchase value data</td></tr>
+<tr><td><strong>Bid cap</strong></td><td>Har auction mein max bid</td><td>Advanced; experienced buyers only</td></tr>
+<tr><td><strong>Highest value</strong></td><td>Zyada value wale purchases dhoondhna</td><td>Jab basket size mein bahut variation ho</td></tr>
+</table></div>
+
+<h4>Scaling: winning campaign ko bada kaise karein</h4>
+<ol>
+<li><strong>Vertical scaling:</strong> Budget har 2-3 din mein ~20% badhao. Ek baar mein double karoge to performance aksar girti hai.</li>
+<li><strong>Horizontal scaling:</strong> Naye creatives/angles add karo, nayi geography, naya campaign with proven creatives.</li>
+<li><strong>Creative scaling (2026 mein sabse important):</strong> Winning ad ke angle pe 5 naye variations (alag hook, alag creator, alag format). Andromeda ko naye "entry points" milte hain naye log tak pahunchne ke liye.</li>
+<li>Scale karte waqt CPA thoda badhega hi (diminishing returns). Dekho ki marginal CPA break-even se neeche hai ya nahi.</li>
+</ol>
+
+<h3 id="m2-leadsales"><span class="tn">2.8</span>Lead &amp; Sales Campaigns</h3>
+<h4>Lead campaigns: 4 conversion locations</h4>
+<div class="tbl"><table>
+<tr><th>Location</th><th>Pros</th><th>Cons</th><th>Best for</th></tr>
+<tr><td><strong>Instant forms</strong> (Meta ke andar form)</td><td>Sasta CPL, user ko app chhodna nahi padta, auto-fill</td><td>Low intent, fake/galat numbers</td><td>Volume chahiye, strong calling team hai</td></tr>
+<tr><td><strong>Website form</strong></td><td>Higher intent, poora landing page bata sakta hai</td><td>Mehenga CPL, page chahiye, tracking setup</td><td>High-ticket, quality chahiye</td></tr>
+<tr><td><strong>Messaging</strong> (WhatsApp / Instagram DM / Messenger)</td><td>India mein bahut effective, turant baat, trust</td><td>Reply karne ke liye team/automation chahiye</td><td>Local business, real estate, clinics, coaching, D2C queries</td></tr>
+<tr><td><strong>Calls</strong></td><td>Direct baat</td><td>Agar koi phone nahi uthata to waste</td><td>Emergency services, urgent needs</td></tr>
+</table></div>
+<h4>Instant form ko quality-friendly banana</h4>
+<ul>
+<li><strong>Form type "Higher intent"</strong> chuno: submit se pehle review screen aati hai, accidental leads kam hote hain.</li>
+<li><strong>Qualifying questions</strong> daalo (multiple choice): "Aapka budget?", "Kab tak lena hai?", "Kaunse area mein?" Short-answer questions bhi intent filter karte hain.</li>
+<li><strong>Intro screen</strong> mein clear likho ki aage kya hoga: "Hamara team 2 ghante mein call karega".</li>
+<li><strong>Conditional logic</strong> se answers ke hisaab se alag questions.</li>
+<li><strong>Speed to lead:</strong> Lead ko 5-10 minute mein call karo. Ghante baad karoge to aadhe log bhool chuke honge. Meta leads ko CRM/Google Sheet se connect karo (Zapier, Pabbly, ya native CRM integration).</li>
+<li><strong>Conversion leads optimization:</strong> Jab CRM se data (kaunsi lead qualified hui, kaunsi convert hui) Meta ko CAPI ke through wapas bhejte ho, Meta better quality leads dhoondhta hai. Advanced par bahut powerful.</li>
+</ul>
+
+<h4>Sales campaigns (e-commerce)</h4>
+<ul>
+<li><strong>Catalog</strong> connect karo (Shopify/WooCommerce se auto-sync). Isse dynamic product ads aur Advantage+ catalog ads chalte hain.</li>
+<li>Pixel + CAPI pe ye events chahiye: ViewContent, AddToCart, InitiateCheckout, AddPaymentInfo, Purchase (value + currency ke saath).</li>
+<li><strong>Starter structure (2026):</strong>
+<ul>
+<li>Campaign 1 — Advantage+ Sales campaign (prospecting), broad, 8-15 creatives, budget ka ~70-80%</li>
+<li>Campaign 2 — Testing campaign (ABO), naye creatives test karne ke liye, ~10-20%</li>
+<li>Campaign 3 — Retargeting (agar Advantage+ existing customers ko already cover nahi kar raha), ~10%</li>
+</ul></li>
+<li><strong>Existing customer budget cap:</strong> Advantage+ Sales mein set kar sakte ho ki kitna % budget existing customers pe jaye, taaki naye customers pe focus rahe.</li>
+</ul>
+
+<h4>Click-to-WhatsApp ads (India ke liye bahut important)</h4>
+<p>Engagement ya Leads/Sales objective mein conversion location WhatsApp chuno. User ad pe click karta hai aur seedha aapke WhatsApp Business pe pre-filled message ke saath aata hai. Tips: welcome message aur quick replies set karo, catalog WhatsApp Business mein daalo, WhatsApp Business API + chatbot se 24x7 reply, aur leads ko tag karo taaki pata chale kaunse ad se aaye.</p>
+
+<h3 id="m2-retarget"><span class="tn">2.9</span>Retargeting</h3>
+<p>Retargeting = un logon ko phir se ad dikhana jo pehle aapse interact kar chuke hain. Ye sabse warm audience hai.</p>
+<div class="tbl"><table>
+<tr><th>Audience</th><th>Window</th><th>Message</th></tr>
+<tr><td>Video 50%+ dekha / page/profile engage kiya</td><td>30–90 din</td><td>Product benefits, testimonial, "aapne dekha tha..."</td></tr>
+<tr><td>Website visitors (product page)</td><td>7–30 din</td><td>Reviews, comparison, FAQ, offer</td></tr>
+<tr><td>Add to cart, purchase nahi</td><td>1–14 din</td><td>Reminder, urgency, free shipping, COD available</td></tr>
+<tr><td>Initiate checkout, purchase nahi</td><td>1–7 din</td><td>Small incentive, trust signals, "help chahiye? WhatsApp karo"</td></tr>
+<tr><td>Past purchasers</td><td>30–180 din (product cycle ke hisaab se)</td><td>Refill, cross-sell, new launch, loyalty</td></tr>
+</table></div>
+<div class="box warn"><h5>2026 reality check</h5><ul>
+<li>Advantage+ campaigns already warm audience ko bhi target karte hain. Isliye alag retargeting campaign ka budget chhota rakho aur overlap check karo.</li>
+<li>Chhote business (kam traffic) ke liye retargeting audience bahut chhoti hoti hai (1,000 se kam). Tab frequency bahut badh jati hai. Window lambi karo ya audiences combine karo.</li>
+<li>Retargeting ka ROAS hamesha high dikhega. Yaad rakho incrementality (Module 1.12).</li>
+</ul></div>
+
+<h3 id="m2-custom"><span class="tn">2.10</span>Custom Audiences &amp; Lookalikes</h3>
+<h4>Custom audience ke sources</h4>
+<ul>
+<li><strong>Website</strong> (pixel): all visitors, specific URL visitors, event-based (AddToCart), time spent. Maximum 180 din.</li>
+<li><strong>Customer list</strong>: phone/email upload (Meta isse hash karke match karta hai). Phone numbers country code ke saath (+91) do.</li>
+<li><strong>Engagement</strong>: video viewers, Instagram profile engagers, page engagers, lead form openers, WhatsApp messagers.</li>
+<li><strong>App activity, offline activity, catalog</strong>.</li>
+</ul>
+<h4>Lookalike audience</h4>
+<p>Meta aapke seed audience jaise naye log dhoondhta hai. 1% = sabse similar (India mein bhi bahut badi audience, lakhs mein), 10% = broad.</p>
+<ul>
+<li><strong>Seed quality</strong> sabse important: top customers (high LTV) ka lookalike, saare customers se better.</li>
+<li>Seed mein kam se kam 100 log chahiye; 1,000-5,000 ideal.</li>
+<li>Andromeda era mein lookalikes ki power kam hui hai kyunki broad targeting already ye kaam karti hai. Inhe "signal" ki tarah use karo ya test karo, ye guaranteed winner nahi hain.</li>
+</ul>
+<div class="box warn"><h5>Privacy</h5><p>Customer list sirf unki upload karo jinhone aapko data diya aur marketing ke liye consent hai. India ka DPDP Act (Digital Personal Data Protection) personal data ke use pe rules lagata hai. Kharidi hui lists kabhi upload mat karo; Meta ki policy ke bhi khilaaf hai.</p></div>
+
+<h3 id="m2-capi"><span class="tn">2.11</span>Pixel aur Conversions API (CAPI)</h3>
+<p><strong>Meta Pixel</strong> = JavaScript code jo browser se events Meta ko bhejta hai. Problem: ad blockers, iOS privacy, browser restrictions, slow internet ke kaaran bahut events miss hote hain.</p>
+<p><strong>Conversions API (CAPI)</strong> = aapka server seedha Meta ke server ko events bhejta hai. Browser pe depend nahi. Dono saath chalate ho (redundant setup) aur Meta duplicate hata deta hai.</p>
+<div class="tbl"><table>
+<tr><th>Concept</th><th>Explanation</th></tr>
+<tr><td><strong>Deduplication</strong></td><td>Same event pixel aur CAPI dono se aaye to Meta ek hi count kare. Iske liye dono mein same <code>event_name</code> aur same <code>event_id</code> bhejna zaroori</td></tr>
+<tr><td><strong>Event Match Quality (EMQ)</strong></td><td>0–10 score: Meta kitni achhi tarah event ko kisi user se match kar pa raha hai. Hashed email, phone, name, city, IP, user agent, fbp/fbc cookies bhejne se badhta hai. 6+ achha, 8+ bahut achha</td></tr>
+<tr><td><strong>Standard events</strong></td><td>PageView, ViewContent, Search, AddToCart, InitiateCheckout, AddPaymentInfo, Purchase, Lead, CompleteRegistration, Contact, Subscribe</td></tr>
+<tr><td><strong>Custom conversions</strong></td><td>URL ya event rules se apna conversion banana (e.g. "thank-you-premium" page)</td></tr>
+<tr><td><strong>Parameters</strong></td><td>Purchase ke saath <code>value</code> aur <code>currency: "INR"</code> zaroor bhejo, warna ROAS nahi dikhega</td></tr>
+</table></div>
+<h4>CAPI setup ke tareeke (aasaan se mushkil)</h4>
+<ol>
+<li><strong>Partner integration:</strong> Shopify, WooCommerce (official Meta plugin), Wix etc. mein few clicks mein. Beginner ke liye best.</li>
+<li><strong>Conversions API Gateway / CAPI tools</strong> in Events Manager.</li>
+<li><strong>Server-side GTM</strong> (Module 4 mein).</li>
+<li><strong>Direct API integration</strong> by developer.</li>
+</ol>
+<h4>Testing</h4>
+<ul>
+<li><strong>Meta Pixel Helper</strong> Chrome extension se browser events check karo.</li>
+<li>Events Manager → <strong>Test Events</strong> tab: website khol ke actions karo aur live dekho events aa rahe hain ya nahi, browser aur server dono se.</li>
+<li><strong>Diagnostics</strong> tab mein errors aur warnings dekho.</li>
+<li>Har week ek baar test purchase/lead karke verify karo. Website updates se tracking toot jaati hai aur kisi ko pata nahi chalta.</li>
+</ul>
+
+<h3 id="m2-reports"><span class="tn">2.12</span>Reports padhna aur optimization routine</h3>
+<div class="tbl"><table>
+<tr><th>Kab</th><th>Kya check karo</th></tr>
+<tr><td><strong>Roz (5-10 min)</strong></td><td>Spend sahi chal raha hai? Koi ad reject hua? Koi ad bahut zyada kharch kar raha bina result? Tracking chal rahi hai?</td></tr>
+<tr><td><strong>Har 3-4 din</strong></td><td>Creative performance: hook rate, CTR, CPA. Losers pause, winners pe naye variations</td></tr>
+<tr><td><strong>Weekly</strong></td><td>CPA/ROAS vs target, frequency, budget shifts, naye tests plan, client report</td></tr>
+<tr><td><strong>Monthly</strong></td><td>MER, CAC, LTV, kaunse angles chale, strategy review, next month ka creative plan</td></tr>
+</table></div>
+<h4>Video ad metrics</h4>
+<ul>
+<li><strong>Hook rate</strong> = 3-second video plays ÷ impressions. Kitne log ruk gaye. 25-30%+ ko achha maana jata hai.</li>
+<li><strong>Hold rate</strong> = ThruPlays (15 sec ya poora) ÷ 3-second plays. Kitne log dekhte rahe.</li>
+<li>Hook rate low → pehle 3 second badlo. Hold rate low → beech ka content boring hai.</li>
+</ul>
+<div class="box tip"><h5>Kill rule (example)</h5><p>Agar kisi ad ne target CPA ka 2-3x kharch kar diya aur ek bhi conversion nahi, to pause. Agar CTR ok hai par conversions nahi, to pehle landing page check karo, ad ko blame mat karo.</p></div>
+
+<h3 id="m2-policy"><span class="tn">2.13</span>Ad policies aur account safety</h3>
+<ul>
+<li><strong>Restricted categories:</strong> health claims ("7 din mein 10 kg kam"), before-after images, financial guarantees, alcohol, dating, crypto ke strict rules hain.</li>
+<li><strong>Special ad categories</strong> (credit, employment, housing, social issues/politics) declare karni padti hain; isse targeting options limit ho jate hain.</li>
+<li>Personal attributes ko seedha address mat karo ("Kya aap diabetic ho?" galat; "Sugar control ke liye natural tareeke" theek).</li>
+<li>Ad reject ho to <strong>Account Quality</strong> se review request karo. Baar-baar reject hone se account restrict ho sakta hai.</li>
+<li>Landing page pe privacy policy, contact details, terms hone chahiye.</li>
+</ul>
+
+<div class="task"><h5>Practice task · Module 2</h5><ol>
+<li>Apna Business Portfolio banao, page + Instagram connect karo, ek ad account aur dataset (pixel) banao.</li>
+<li>₹300-500/din ka ek Engagement campaign chalao jiska conversion location WhatsApp ho (apne ya dost ke business ke liye) — 5 din.</li>
+<li>Ek Leads campaign instant form (higher intent, 2 qualifying questions) ke saath banao. Leads ko Google Sheet mein bhejo.</li>
+<li>Custom columns set karo aur 5 din baad ek page report likho: CPM, CTR, CPC, CPL, kya seekha, aage kya badloge.</li>
+<li>3 custom audiences banao: 30-day website visitors, video 50% viewers, Instagram engagers 90 din.</li>
+</ol></div>
+
+<details class="check"><summary>Self-check: 6 sawaal</summary><div class="in"><ol>
+<li>Sales chahiye to Traffic objective kyun nahi? <span class="ans">Meta clickers dhoondhega, buyers nahi. Jo result chahiye wahi optimization event chuno.</span></li>
+<li>Andromeda era mein performance ka sabse bada lever kya hai? <span class="ans">Creative diversity aur quality, saath mein saaf conversion data.</span></li>
+<li>Pixel aur CAPI dono chal rahe hain, purchase double count ho rahe hain. Kya fix? <span class="ans">Dono mein same event_name aur event_id bhejo taaki deduplication ho.</span></li>
+<li>Target CPA ₹700, ek ad set ko learning se jaldi nikalne ke liye daily budget? <span class="ans">700 × 50 / 7 ≈ ₹5,000/din.</span></li>
+<li>Instant form leads mein bahut fake numbers aa rahe hain. 3 fixes? <span class="ans">Higher intent form type, qualifying questions, Audience Network check/exclude, CRM feedback via CAPI.</span></li>
+<li>Winning campaign ko scale kaise karoge? <span class="ans">Budget ~20% har 2-3 din, naye creative variations of winning angle, nayi geography.</span></li>
+</ol></div></details>
+
+<div class="done-row"><button class="done-btn" data-mod="m2" aria-pressed="false">Mark complete</button></div>
+</section>
+<section class="module" id="m3" data-title="Google Ads & Search Campaigns">
+<div class="mod-head"><span class="mod-num">MODULE 03 · STEP 3</span><span class="mod-time">Week 6–8 · ~18 ghante</span></div>
+<h2>Google Ads &amp; Search Campaigns</h2>
+<p>Meta pe aap logon ke <em>beech mein</em> aate ho jab wo scroll kar rahe hote hain. Google Search pe log <em>khud</em> aate hain: "best water softener for home bhopal", "jee coaching near me". Isliye Search ka intent sabse high hota hai. Is module mein Search ko depth mein, aur PMax, Demand Gen, YouTube, Shopping ko practical level pe cover kiya gaya hai.</p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Keyword research karke intent ke hisaab se ad groups bana paoge</li>
+<li>Match types, negative keywords aur AI Max ka sahi use samjhoge</li>
+<li>High-quality Responsive Search Ads likh paoge</li>
+<li>Sahi bidding strategy chun paoge aur Quality Score improve kar paoge</li>
+<li>PMax, Demand Gen, Shopping, YouTube kab use karna hai ye decide kar paoge</li>
+</ul></div>
+
+<h3 id="m3-types"><span class="tn">3.1</span>Google Ads account structure aur campaign types</h3>
+<div class="formula"><span class="lbl">Structure</span>Account → Campaign (budget, bidding, location, network) → Ad Group (keywords ka theme) → Ads + Keywords<br>
+Assets (sitelinks, callouts, images, call) account / campaign / ad group level pe</div>
+<div class="tbl"><table>
+<tr><th>Campaign type</th><th>Kahan dikhta hai</th><th>Best for</th></tr>
+<tr><td><strong>Search</strong></td><td>Google search results (text ads), AI Overviews/AI Mode (eligible setups)</td><td>High intent demand capture: services, leads, local, B2B</td></tr>
+<tr><td><strong>Performance Max (PMax)</strong></td><td>Ek campaign se Search, Shopping, YouTube, Display, Gmail, Discover, Maps</td><td>E-commerce with feed, lead gen with strong conversion data</td></tr>
+<tr><td><strong>Demand Gen</strong></td><td>YouTube (Shorts, in-stream, feed), Discover, Gmail</td><td>Demand create karna, visual products, Meta jaisa social-style ad</td></tr>
+<tr><td><strong>Shopping</strong></td><td>Product listing with image + price</td><td>E-commerce (Merchant Center feed chahiye)</td></tr>
+<tr><td><strong>Video</strong></td><td>YouTube</td><td>Awareness, reach, consideration</td></tr>
+<tr><td><strong>Display</strong></td><td>Google Display Network websites/apps</td><td>Retargeting, cheap awareness (quality pe nazar rakho)</td></tr>
+<tr><td><strong>App</strong></td><td>Search, Play, YouTube, Display</td><td>App installs</td></tr>
+</table></div>
+<div class="box tip"><h5>Kahan se shuru karein</h5><p>Beginner aur zyada clients ke liye: <strong>Search campaign</strong> (brand + top non-brand keywords). Ye sabse controllable aur samajhne mein aasaan hai. Conversion tracking stable hone ke baad PMax / Demand Gen add karo.</p></div>
+
+<h3 id="m3-search"><span class="tn">3.2</span>Search Campaigns: setup step by step</h3>
+<ol>
+<li><strong>Goal:</strong> Leads / Sales / Website traffic. Conversion action pehle se ready hona chahiye (Module 4).</li>
+<li><strong>Networks:</strong> Search partners aur Display Network ka option aata hai. Shuru mein <strong>Display Network off</strong> rakho (warna Search ka budget banners pe jayega). Search partners test kar sakte ho.</li>
+<li><strong>Locations:</strong> City/radius. Advanced option mein <strong>"Presence: People in or regularly in your locations"</strong> chuno, "presence or interest" nahi — warna Delhi ka banda jo Bhopal ke baare mein padh raha hai use bhi ad dikhega.</li>
+<li><strong>Languages:</strong> English + Hindi (India mein log Hindi interface bhi use karte hain).</li>
+<li><strong>Budget &amp; bidding</strong> (3.8 dekho).</li>
+<li><strong>AI Max</strong> setting (3.4 dekho).</li>
+<li><strong>Ad schedule:</strong> Lead gen mein agar call center 9-7 chalta hai to raat ke ads band/kam karo (pehle data dekh ke).</li>
+<li><strong>Ad groups:</strong> Har ad group = ek tight theme (e.g. "water softener price", "water softener for bathroom").</li>
+<li><strong>Assets:</strong> Sitelinks (4+), callouts (4+), structured snippets, call asset, location asset (Google Business Profile link), image assets, price asset, lead form asset.</li>
+</ol>
+<h4>Account structure example: ek coaching institute</h4>
+<div class="tbl"><table>
+<tr><th>Campaign</th><th>Ad groups</th></tr>
+<tr><td>Brand (Exact/Phrase)</td><td>"resonance bhopal", "resonance narmadapuram road"</td></tr>
+<tr><td>JEE — Non-brand</td><td>JEE coaching bhopal · IIT JEE classes near me · JEE dropper batch · JEE foundation class 9/10</td></tr>
+<tr><td>NEET — Non-brand</td><td>NEET coaching bhopal · NEET repeater batch · best NEET institute</td></tr>
+<tr><td>Competitor (optional, carefully)</td><td>Competitor naam + coaching. Unke trademark ko ad text mein mat likho</td></tr>
+</table></div>
+<p>Brand ko alag rakhne ka reason: brand keywords ka CPC kam aur CVR bahut high hota hai. Saath rakhoge to non-brand ka kharab performance chhup jayega.</p>
+
+<h3 id="m3-kw"><span class="tn">3.3</span>Keyword Research</h3>
+<h4>Process</h4>
+<ol>
+<li><strong>Seed list banao:</strong> Product/service ke naam, problems, use-cases, location ke saath. Client se poocho: "customer phone pe pehla sawaal kya poochte hain?"</li>
+<li><strong>Google Keyword Planner</strong> (Tools → Planning): seed daalo, location India/city chuno. Volume, competition aur top-of-page bid range dekho.</li>
+<li><strong>Google autocomplete, "People also ask", related searches</strong> — free aur real searches.</li>
+<li><strong>Search Console</strong> (agar website hai): kaunse queries pe already traffic aa raha hai.</li>
+<li><strong>Competitor sites</strong> aur unke ads dekho (Google Ads Transparency Center).</li>
+<li><strong>Group karo</strong> theme + intent ke hisaab se, aur har group ke liye ek landing page decide karo.</li>
+</ol>
+<h4>Keyword ko evaluate kaise karein</h4>
+<ul>
+<li><strong>Intent &gt; volume.</strong> "water softener price bhopal" (50 searches) &gt; "what is hard water" (5,000 searches) ek seller ke liye.</li>
+<li><strong>Modifiers jo buying intent dikhate hain:</strong> price, cost, buy, near me, best, vs, review, dealer, installation, service, book, online.</li>
+<li><strong>Modifiers jo intent kam karte hain:</strong> free, kya hai, meaning, DIY, jobs, course, PDF, download, salary.</li>
+<li><strong>Long-tail keywords</strong> (3-5 words) kam volume par zyada specific, zyada CVR.</li>
+<li><strong>Max CPC affordability:</strong> Break-even CPC = Break-even CPA × expected CVR. Agar BE CPA ₹800 aur CVR 4% → ₹32 tak ka CPC afford hai.</li>
+</ul>
+
+<h3 id="m3-intent"><span class="tn">3.4</span>Search Intent</h3>
+<div class="tbl"><table>
+<tr><th>Intent</th><th>Example</th><th>Ad pe kya karo</th></tr>
+<tr><td><strong>Informational</strong></td><td>"hard water se baal kyun jhadte hain"</td><td>Generally bid mat karo, ya cheap awareness/blog. SEO ka kaam</td></tr>
+<tr><td><strong>Navigational</strong></td><td>"kent ro customer care", "resonance bhopal"</td><td>Apna brand: zaroor bid karo (sasta). Dusre ka brand: carefully</td></tr>
+<tr><td><strong>Commercial investigation</strong></td><td>"best water softener for home", "kent vs aquaguard"</td><td>Comparison page, reviews, "why us" angle</td></tr>
+<tr><td><strong>Transactional</strong></td><td>"buy water softener online", "water softener price"</td><td>Sabse zyada bid, direct offer, price, CTA</td></tr>
+</table></div>
+<h4>AI Max for Search (2026)</h4>
+<p>AI Max ek feature suite hai jo aapke existing Search campaign ke upar lagta hai. Ye alag campaign type nahi hai (PMax ki tarah). Isme teen cheezein hain:</p>
+<ul>
+<li><strong>Search term matching:</strong> aapke keywords aur website ke basis pe naye relevant queries dhoondhta hai (broad match + "keywordless" logic).</li>
+<li><strong>Text customization:</strong> search ke hisaab se headlines/descriptions automatically adjust karta hai.</li>
+<li><strong>Final URL expansion:</strong> user ko website ke sabse relevant page pe bhejta hai, sirf aapke diye URL pe nahi.</li>
+</ul>
+<div class="box new"><h5>2026 timeline</h5><ul>
+<li>AI Max for Search 2026 mein beta se bahar aa gaya aur naye Search campaigns ke liye default setting ban raha hai.</li>
+<li>Dynamic Search Ads (DSA) ko AI Max replace karega. Automatic migration pehle September 2026 plan thi, ab <strong>February 2027</strong> tak shift ho gayi hai. Automatically created assets aur campaign-level broad match setting ka upgrade September 2026 se chal raha hai.</li>
+<li>Google Search ke AI Overviews aur AI Mode mein ads ke liye eligible setups: AI Max ya broad match wale Search campaigns, Shopping, aur PMax. Sirf exact/phrase match wale Search campaigns (bina AI Max) wahan eligible nahi hain.</li>
+</ul></div>
+<div class="box warn"><h5>AI Max use karne ka safe tarika</h5><ol>
+<li>Pehle conversion tracking solid karo. AI ka khana data hai.</li>
+<li>Ek campaign pe experiment ke roop mein on karo, sab pe ek saath nahi.</li>
+<li><strong>Brand controls</strong> (brand inclusions/exclusions), <strong>URL exclusions</strong> (careers, blog, privacy policy pages), aur negative keywords set karo.</li>
+<li>Har 2-3 din <strong>search terms report</strong> padho. AI wide jaal phenkta hai; irrelevant queries ko negative karo.</li>
+<li>2-4 hafte baad CPA/ROAS compare karo bina AI Max wale period se.</li>
+</ol></div>
+
+<h3 id="m3-match"><span class="tn">3.5</span>Match Types</h3>
+<div class="tbl"><table>
+<tr><th>Match type</th><th>Syntax</th><th>Kis search pe ad dikh sakta hai</th><th>Use</th></tr>
+<tr><td><strong>Broad</strong></td><td>water softener</td><td>Meaning se related kuch bhi: "hard water solution", "bathroom water filter", "salt free softener"</td><td>Smart bidding + achhe conversion data ke saath. Search terms report pe nazar zaroori</td></tr>
+<tr><td><strong>Phrase</strong></td><td>"water softener"</td><td>Jisme ye meaning ho: "best water softener for home", "water softener price bhopal"</td><td>Balance of reach aur control</td></tr>
+<tr><td><strong>Exact</strong></td><td>[water softener]</td><td>Same meaning/intent: "water softener", "water softeners", "softener for water"</td><td>Top performers aur brand terms pe maximum control</td></tr>
+</table></div>
+<p>Note: aaj ke Google mein exact match bhi "close variants" (plural, spelling, same intent) pe chalta hai. Match types ab "kitna strict" ke bajaye "kitna flexible" ki scale hain.</p>
+<div class="box tip"><h5>Practical approach (2026)</h5><p>Chhota budget aur naya account: <strong>phrase + exact</strong>, manual control. Jab 30+ conversions/month aa jayein: high-performing ad groups mein <strong>broad match + smart bidding</strong> test karo. Ek hi keyword ko teen match types mein daal ke ek hi ad group mein mat bharo; ab iski zarurat nahi.</p></div>
+
+<h3 id="m3-neg"><span class="tn">3.6</span>Negative Keywords</h3>
+<p>Negative keyword = jin searches pe ad <em>nahi</em> dikhana. Ye budget bachane ka sabse direct tarika hai.</p>
+<h4>Universal negative list (India ke liye starter)</h4>
+<div class="tbl"><table>
+<tr><th>Category</th><th>Words</th></tr>
+<tr><td>Free / cheap seekers</td><td>free, mufti, cheapest (agar premium ho), second hand, used, olx</td></tr>
+<tr><td>Jobs</td><td>job, jobs, vacancy, career, salary, hiring, naukri, recruitment, internship</td></tr>
+<tr><td>Learning / DIY</td><td>course, training, pdf, ppt, project, diy, how to make, wikipedia, meaning, kya hai (agar service sell kar rahe ho)</td></tr>
+<tr><td>Downloads</td><td>download, apk, torrent, crack, mod</td></tr>
+<tr><td>Wrong product/brand</td><td>Jo aap nahi bechte (e.g. "ro repair" agar sirf softener bechte ho)</td></tr>
+<tr><td>Wrong location</td><td>Wo cities jahan service nahi</td></tr>
+</table></div>
+<ul>
+<li><strong>Negative match types</strong> bhi hote hain aur ye positive se alag kaam karte hain: negative broad <em>close variants</em> nahi pakadta. "job" negative hai to "jobs" alag se daalo.</li>
+<li><strong>Shared negative lists</strong> banao (Tools → Shared library) aur saare campaigns pe lagao.</li>
+<li><strong>Weekly routine:</strong> Search terms report → irrelevant terms select → "Add as negative keyword".</li>
+<li>Over-negating mat karo. "price" ko negative karna ek lead-gen client ke liye galti hai; price search karne wale buyers hain.</li>
+</ul>
+
+<h3 id="m3-copy"><span class="tn">3.7</span>Ad Copy: Responsive Search Ads (RSA)</h3>
+<p>RSA mein aap <strong>15 headlines (har ek max 30 characters)</strong> aur <strong>4 descriptions (har ek max 90 characters)</strong> dete ho. Google combinations test karta hai. Ek ad group mein 1-2 RSA kaafi hain.</p>
+<h4>15 headlines kaise banayein (framework)</h4>
+<div class="tbl"><table>
+<tr><th>Slot type</th><th>Count</th><th>Example (water softener, Bhopal)</th></tr>
+<tr><td>Keyword match</td><td>3</td><td>Water Softener for Home · Best Water Softener Bhopal · Water Softener Price</td></tr>
+<tr><td>Benefit</td><td>3</td><td>Stop Hair Fall From Hard Water · No More White Scaling · Soft Skin, Shiny Taps</td></tr>
+<tr><td>Offer / price</td><td>2</td><td>Starting ₹14,999 · Free Installation This Month</td></tr>
+<tr><td>Trust / proof</td><td>3</td><td>4.8★ Rated by 2,000+ Homes · 5-Year Warranty · Certified Technicians</td></tr>
+<tr><td>Differentiator</td><td>2</td><td>Salt-Saving Smart Valve · Same-Day Free Water Test</td></tr>
+<tr><td>CTA</td><td>2</td><td>Book Free Home Demo · Get Quote on WhatsApp</td></tr>
+</table></div>
+<ul>
+<li><strong>Pinning:</strong> Headline ko position 1/2/3 pe pin kar sakte ho (e.g. legal disclaimer). Kam se kam pin karo; pinning combinations kam karti hai.</li>
+<li><strong>Ad strength</strong> "Good" ya "Excellent" target karo, par ye ranking factor nahi hai. Final judge performance hai.</li>
+<li><strong>Descriptions:</strong> Benefit + proof + CTA ek sentence mein. "Hard water se hone wale hair fall aur scaling ko rokein. 2,000+ Bhopal homes ka bharosa. Free demo book karein."</li>
+<li><strong>Display path:</strong> website.com/water-softener/bhopal — relevance badhata hai.</li>
+<li>Hinglish/Hindi ads test karo, especially tier 2/3 audience ke liye.</li>
+</ul>
+<h4>Assets (pehle extensions)</h4>
+<p>Assets ad ko bada aur zyada clickable banate hain, aur Ad Rank mein help karte hain. Minimum: 4 sitelinks (with descriptions), 4 callouts, 1 structured snippet, call asset, location asset, image assets (Search ads mein images bhi dikh sakti hain), business name + logo.</p>
+
+<h3 id="m3-qs"><span class="tn">3.8</span>Quality Score, Ad Rank aur Bidding</h3>
+<h4>Quality Score (1–10, keyword level)</h4>
+<ul>
+<li><strong>Expected CTR:</strong> Is keyword pe aapka ad kitna click hoga (competitors ke comparison mein).</li>
+<li><strong>Ad relevance:</strong> Ad keyword/search se kitna match karta hai.</li>
+<li><strong>Landing page experience:</strong> Page relevant, fast, mobile-friendly, trustworthy hai ya nahi.</li>
+</ul>
+<p>High QS = kam CPC aur better position. QS 7+ achha hai. Ad Rank (position) bid, quality, assets, search context aur Ad Rank thresholds se decide hota hai. Matlab <strong>achha ad kam bid pe bhi upar aa sakta hai.</strong></p>
+<h4>Bidding strategies</h4>
+<div class="tbl"><table>
+<tr><th>Strategy</th><th>Kya karta hai</th><th>Kab use</th></tr>
+<tr><td><strong>Manual CPC</strong></td><td>Aap har keyword ka max CPC set karte ho</td><td>Learning ke liye, bahut chhote budget, ya special control. Aajkal kam use</td></tr>
+<tr><td><strong>Maximize clicks</strong></td><td>Budget mein max clicks (max CPC limit ke saath)</td><td>Naya campaign jab conversion data zero ho, pehle 1-2 hafte data ke liye</td></tr>
+<tr><td><strong>Maximize conversions</strong></td><td>Budget mein max conversions</td><td>Conversion tracking ready hai; default smart bidding start</td></tr>
+<tr><td><strong>Maximize conversions + target CPA</strong></td><td>Average CPA target ke aas paas</td><td>15-30+ conversions/month ke baad; target realistic rakho (actual CPA ke paas)</td></tr>
+<tr><td><strong>Maximize conversion value (+ target ROAS)</strong></td><td>Revenue/value maximize</td><td>E-commerce with purchase values; lead gen with lead values</td></tr>
+<tr><td><strong>Target impression share</strong></td><td>Top pe dikhna</td><td>Brand defense</td></tr>
+</table></div>
+<div class="box warn"><h5>Smart bidding ke rules</h5><ul>
+<li>Bid strategy change karne ke baad 1-2 hafte learning period hota hai. Beech mein baar-baar mat chhedo.</li>
+<li>Target CPA ko ek baar mein 15-20% se zyada mat badlo.</li>
+<li>Budget-limited campaigns (jinka budget roz khatam ho jata hai) mein target CPA/ROAS ka behaviour alag hota hai — Google ne Aug 2026 se is behaviour ko update kiya hai. Budget aur target dono saath mein socho.</li>
+<li>Galat conversion (e.g. page view ko conversion banana) smart bidding ko barbaad kar deta hai. Sirf real business actions ko "primary" conversion rakho.</li>
+</ul></div>
+
+<h3 id="m3-lp"><span class="tn">3.9</span>Landing Pages (Google Ads ke liye)</h3>
+<ul>
+<li><strong>Message match:</strong> Search "water softener price" → ad mein price → landing page pe upar hi price. Ye sabse bada CVR lever hai.</li>
+<li><strong>Ek ad group theme = ek relevant page.</strong> Homepage pe bhejna aam galti hai.</li>
+<li><strong>Above the fold:</strong> headline (search intent se match), 3 benefit bullets, trust (rating, logos), CTA (call / WhatsApp / form).</li>
+<li><strong>Mobile first:</strong> India mein 75%+ searches mobile pe. Sticky call/WhatsApp button.</li>
+<li><strong>Speed:</strong> Page 3 second mein load nahi hota to bahut log chale jaate hain. Detail Module 5.9 mein.</li>
+<li><strong>Local trust:</strong> Address, Google Maps embed, local phone number, real photos.</li>
+</ul>
+
+<h3 id="m3-conv"><span class="tn">3.10</span>Conversion Tracking (Google Ads side)</h3>
+<p>Tracking ka full concept Module 4 mein hai. Google Ads specific cheezein yahan:</p>
+<div class="tbl"><table>
+<tr><th>Option</th><th>Kya hai</th></tr>
+<tr><td><strong>Google Ads conversion tag</strong> (via GTM ya gtag)</td><td>Website pe conversion record karta hai. Ads optimization ke liye sabse accurate (recommended for primary)</td></tr>
+<tr><td><strong>GA4 key events import</strong></td><td>GA4 ke events Google Ads mein import. Setup aasaan, par thoda delay aur attribution differences</td></tr>
+<tr><td><strong>Enhanced conversions</strong></td><td>Hashed email/phone bhej ke match better karna. 2026 mein standard practice; zaroor on karo</td></tr>
+<tr><td><strong>Offline conversion import</strong></td><td>CRM se "lead qualified / sale closed" wapas Google ko bhejna (GCLID ya enhanced conversions for leads se). High-ticket lead gen ke liye game-changer</td></tr>
+<tr><td><strong>Call conversions</strong></td><td>Call asset se calls; 60+ second calls ko conversion count karo</td></tr>
+<tr><td><strong>Primary vs Secondary</strong></td><td>Primary = bidding mein use hota hai. Secondary = sirf observe ke liye</td></tr>
+</table></div>
+<div class="box tip"><h5>Lead gen ke liye conversion value</h5><p>Har lead ko same value mat do. Agar "demo booked" ki value ₹2,000 aur "brochure download" ki ₹200 hai to value assign karo aur Maximize conversion value use karo. Google zyada valuable leads dhoondhega.</p></div>
+
+<h3 id="m3-other"><span class="tn">3.11</span>PMax, Demand Gen, Shopping aur YouTube (practical overview)</h3>
+<h4>Performance Max</h4>
+<ul>
+<li><strong>Asset groups</strong> banao (har product category/audience theme ka ek): 15 headlines, long headlines, descriptions, images (landscape, square, portrait), logos, videos (khud ka video do, warna Google auto-video banata hai jo aksar achha nahi hota).</li>
+<li><strong>Audience signals:</strong> customer list, website visitors, custom segments (search terms). Ye targeting nahi, sirf "hint" hai.</li>
+<li><strong>Controls jo 2026 mein aaye/better hue:</strong> negative keywords, brand exclusions, channel-level reporting, asset group reporting, search term insights. Inhe use karo.</li>
+<li>E-commerce: Merchant Center feed saaf rakho (title, image, price, availability). Feed hi aapka "ad copy" hai.</li>
+<li>Brand traffic khaane ki tendency: brand exclusion lagao, brand ko alag Search campaign mein rakho.</li>
+</ul>
+<h4>Demand Gen</h4>
+<p>YouTube Shorts, in-stream, Discover aur Gmail pe visual ads. Meta-style creative yahan kaam karta hai. Lookalike segments bhi hain. Use when: demand create karni ho, YouTube pe reach chahiye, Meta ke creatives reuse karne hain.</p>
+<h4>Shopping</h4>
+<p>Merchant Center account + product feed + Google Ads link. Standard Shopping se control milta hai; PMax se scale. Naye store ke liye: Standard Shopping + brand Search se shuru karna common approach hai.</p>
+<h4>YouTube / Video</h4>
+<ul>
+<li>Skippable in-stream: pehle 5 second mein brand + hook.</li>
+<li>Shorts: vertical 9:16, native feel, captions.</li>
+<li>Video ko "conversion" goal ke saath Demand Gen mein chalao; pure awareness ke liye Video reach campaigns.</li>
+</ul>
+
+<h3 id="m3-local"><span class="tn">3.12</span>Local business ke liye Google Ads</h3>
+<ul>
+<li><strong>Google Business Profile</strong> ko Google Ads se link karo → location asset → Maps aur "near me" searches mein ads.</li>
+<li>Radius targeting (3-15 km) + "near me", "in [area name]" keywords.</li>
+<li>Call asset + call reporting. Bahut local businesses ka 50%+ conversion phone call se hota hai.</li>
+<li>Ad schedule business hours ke saath align karo agar calls pe depend ho.</li>
+<li>Reviews badhao; star rating ads ke saath dikh sakti hai aur CTR badhati hai.</li>
+</ul>
+
+<h3 id="m3-optim"><span class="tn">3.13</span>Weekly optimization checklist (Google Ads)</h3>
+<ol>
+<li>Search terms report → negatives add, naye achhe terms ko keywords banao.</li>
+<li>Keywords jo target CPA ka 2-3x kharch kar chuke bina conversion → pause ya bid kam.</li>
+<li>Ad assets performance (Low / Good / Best) → "Low" headlines replace karo.</li>
+<li>Impression share lost (budget) vs lost (rank) → budget badhao ya quality/bid improve karo.</li>
+<li>Device, location, time breakdown → bid adjustments (manual/ECPC setups mein) ya exclusions.</li>
+<li>Landing page conversion rate → A/B test plan.</li>
+<li>Conversion tracking working? Recommendations tab dekho, par aankh band karke "Apply all" mat karo. Bahut recommendations spend badhane ke liye hote hain.</li>
+<li>Auto-apply recommendations settings check karo aur zyada tar off rakho.</li>
+</ol>
+
+<div class="task"><h5>Practice task · Module 3</h5><ol>
+<li>Ek local business ke liye Keyword Planner se 50 keywords nikalo. Inhe 4 intent types mein classify karo.</li>
+<li>4 ad groups ka structure banao (Google Sheet mein): keywords + match type + landing page.</li>
+<li>Har ad group ke liye 15 headlines aur 4 descriptions likho (character limit check karo).</li>
+<li>50 words ki negative keyword list banao.</li>
+<li>Agar budget ho: ₹500/din ka Search campaign 7 din chalao, Maximize clicks se start, phir conversion data aane pe Maximize conversions. Search terms report ka screenshot aur seekh likho.</li>
+</ol></div>
+
+<details class="check"><summary>Self-check: 6 sawaal</summary><div class="in"><ol>
+<li>Brand aur non-brand keywords alag campaign mein kyun? <span class="ans">Brand ka CVR/CPC bahut alag hota hai; saath rakhoge to non-brand ki asli performance chhup jaati hai aur budget mix ho jata hai.</span></li>
+<li>AI Max ke teen components? <span class="ans">Search term matching, text customization, final URL expansion.</span></li>
+<li>Quality Score ke teen factors? <span class="ans">Expected CTR, ad relevance, landing page experience.</span></li>
+<li>Naye campaign mein 0 conversions hain. Kaunsi bidding? <span class="ans">Maximize clicks (max CPC limit) ya Maximize conversions agar tracking ready hai; data aane pe target CPA.</span></li>
+<li>Location setting mein "presence" kyun chunte ho? <span class="ans">Taaki sirf us jagah ke ya wahan regularly aane wale logon ko ad dikhe, sirf interest wale ko nahi.</span></li>
+<li>Break-even CPA ₹1,000, CVR 5%. Max affordable CPC? <span class="ans">1,000 × 0.05 = ₹50.</span></li>
+</ol></div></details>
+
+<div class="done-row"><button class="done-btn" data-mod="m3" aria-pressed="false">Mark complete</button></div>
+</section>
+<section class="module" id="m4" data-title="Tracking & Analytics (GA4, GTM, Pixel)">
+<div class="mod-head"><span class="mod-num">MODULE 04 · STEP 4</span><span class="mod-time">Week 9–10 · ~14 ghante</span></div>
+<h2>Tracking &amp; Analytics: GA4, GTM, Meta Pixel</h2>
+<p>Ye module "technical" lagta hai isliye log skip karte hain. Aur isi wajah se jo isse achhe se jaanta hai uski demand sabse zyada hai. Agar tracking galat hai to Meta aur Google ka AI galat logon ko dhoondhega, aur aapki reports jhoothi hongi.</p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Tracking ka poora flow (website → tags → platforms) samjhoge</li>
+<li>GTM se Meta Pixel, GA4 aur Google Ads tags laga paoge</li>
+<li>GA4 ke reports aur explorations padh paoge</li>
+<li>UTM parameters ka system bana paoge</li>
+<li>Consent Mode, server-side tracking aur attribution ke concept samjhoge</li>
+</ul></div>
+
+<h3 id="m4-flow"><span class="tn">4.1</span>Big picture: tracking kaise kaam karti hai</h3>
+<div class="funnel">
+<div style="width:100%"><b>User action</b> — page dekha, button dabaya, form bhara, payment kiya</div>
+<div style="width:92%"><b>Data layer</b> — website ye info ek standard format mein rakhti hai (event name, value, product)</div>
+<div style="width:84%"><b>Google Tag Manager</b> — trigger dekhta hai, sahi tags fire karta hai</div>
+<div style="width:76%"><b>Tags</b> — Meta Pixel · GA4 · Google Ads conversion · aur koi bhi</div>
+<div style="width:68%"><b>Platforms</b> — Meta optimize karta hai, Google bid karta hai, GA4 report banata hai</div>
+</div>
+<p>Iske saath ek parallel raasta hai: <strong>server-side</strong> (CAPI, Enhanced Conversions, offline imports) jo browser ki rukawaton ke bina data bhejta hai.</p>
+
+<h3 id="m4-pixel"><span class="tn">4.2</span>Meta Pixel (implementation view)</h3>
+<p>Concept Module 2.11 mein cover hua. Yahan implementation:</p>
+<ol>
+<li>Events Manager → Connect data sources → Web → dataset banao.</li>
+<li><strong>Installation options:</strong> (a) Partner integration (Shopify/WooCommerce) — sabse aasaan aur CAPI bhi saath mein; (b) GTM se base code + event tags; (c) website code mein directly.</li>
+<li><strong>Base code</strong> har page pe (PageView). <strong>Event code</strong> specific actions pe: e.g. thank-you page pe Purchase.</li>
+<li>Purchase event example structure:
+<div class="formula">fbq('track', 'Purchase', {<br>&nbsp;&nbsp;value: 1499.00,<br>&nbsp;&nbsp;currency: 'INR',<br>&nbsp;&nbsp;content_ids: ['SKU123'],<br>&nbsp;&nbsp;content_type: 'product'<br>}, {eventID: 'order_10582'});</div>
+<code>eventID</code> wahi bhejo jo CAPI server event mein bhejoge, deduplication ke liye.</li>
+<li>Test Events tool aur Pixel Helper se verify.</li>
+</ol>
+<div class="box mistake"><h5>Classic galtiyan</h5><ul>
+<li>Purchase event "Buy Now" button click pe lagana. Purchase tab fire hona chahiye jab payment <em>successful</em> ho (thank-you page ya order confirmation).</li>
+<li>Thank-you page refresh hone pe Purchase do baar fire hona. Order ID ke basis pe ek hi baar fire karo.</li>
+<li>Value mein hardcoded number ("value: 100") rakh dena. Dynamic actual order value aani chahiye.</li>
+<li>Do alag plugins se double pixel install. Pixel Helper "multiple pixels" ya duplicate events dikhayega.</li>
+</ul></div>
+
+<h3 id="m4-gtm"><span class="tn">4.3</span>Google Tag Manager (GTM)</h3>
+<p>GTM ek "container" hai jo website pe ek baar lagta hai. Uske baad saare tracking codes aap GTM ke dashboard se bina developer ke laga/hata sakte ho.</p>
+<div class="tbl"><table>
+<tr><th>Concept</th><th>Matlab</th><th>Example</th></tr>
+<tr><td><strong>Tag</strong></td><td>Kya bhejna hai</td><td>GA4 event "generate_lead", Meta Pixel Lead, Google Ads conversion</td></tr>
+<tr><td><strong>Trigger</strong></td><td>Kab bhejna hai</td><td>Page URL contains /thank-you · Form submission · Click on WhatsApp button · Custom event "purchase"</td></tr>
+<tr><td><strong>Variable</strong></td><td>Dynamic info</td><td>Page URL, Click URL, order value from data layer, transaction ID</td></tr>
+<tr><td><strong>Data layer</strong></td><td>Website aur GTM ke beech ka "notice board"</td><td><code>dataLayer.push({event:'purchase', value:1499, transaction_id:'10582'})</code></td></tr>
+<tr><td><strong>Preview mode</strong></td><td>Live jaane se pehle test</td><td>Tag Assistant mein dekho kaunsa tag kab fire hua</td></tr>
+<tr><td><strong>Versions / Publish</strong></td><td>Har change ka record</td><td>Kuch toota to purana version restore karo</td></tr>
+</table></div>
+<h4>Step-by-step: GTM se common events</h4>
+<ol>
+<li><strong>Setup:</strong> tagmanager.google.com → account + container (Web) → do code snippets website pe (head + body). WordPress mein plugin se bhi.</li>
+<li><strong>Google tag (GA4):</strong> Tag type "Google Tag", Tag ID = GA4 Measurement ID (G-XXXX), trigger "Initialization – All Pages".</li>
+<li><strong>Thank-you page lead:</strong> Trigger = Page View, Page Path equals /thank-you. Tags: GA4 Event (generate_lead), Meta Pixel Lead (Custom HTML ya template), Google Ads Conversion.</li>
+<li><strong>WhatsApp click:</strong> Built-in click variables enable karo → Trigger = Click – Just Links, Click URL contains "wa.me" ya "api.whatsapp.com" → GA4 event "whatsapp_click".</li>
+<li><strong>Phone click:</strong> Click URL starts with "tel:" → event "phone_click".</li>
+<li><strong>E-commerce purchase:</strong> Developer/plugin se data layer push (GA4 ecommerce format) → Custom Event trigger "purchase" → GA4 purchase tag with ecommerce data, Meta Purchase, Ads conversion with value + transaction ID.</li>
+<li><strong>Preview</strong> → test karo → <strong>Submit</strong> with clear version name ("Added WhatsApp click tracking – 20 Oct").</li>
+</ol>
+<div class="box tip"><h5>Templates use karo</h5><p>GTM ki Community Template Gallery mein Meta Pixel, Consent Mode, aur bahut se tools ke ready templates hain. Custom HTML kam se kam use karo; templates safe aur maintain karne mein aasaan hain.</p></div>
+
+<h3 id="m4-ga4"><span class="tn">4.4</span>GA4 (Google Analytics 4)</h3>
+<p>GA4 <strong>event-based</strong> hai: har cheez event hai (page_view bhi). Session aur users events se calculate hote hain.</p>
+<h4>Setup checklist</h4>
+<ol>
+<li>Account → Property (time zone India, currency INR) → Web data stream.</li>
+<li><strong>Enhanced measurement</strong> on: page views, scrolls, outbound clicks, site search, video engagement, file downloads, form interactions automatically track hote hain.</li>
+<li><strong>Data retention</strong> 2 months se <strong>14 months</strong> karo (Admin → Data collection → Data retention). Default 2 months mein explorations ka purana data chala jata hai.</li>
+<li><strong>Internal traffic</strong> filter (office IP) aur <strong>unwanted referrals</strong> (payment gateways jaise razorpay, paytm) list karo, warna purchase ka source "razorpay.com" dikhega.</li>
+<li><strong>Key events</strong> mark karo (purchase, generate_lead, etc.). Pehle inhe "conversions" kehte the.</li>
+<li><strong>Google Ads, Search Console, Merchant Center</strong> link karo.</li>
+<li>Custom dimensions banao jo parameters aap bhejte ho (e.g. form_name, lead_type).</li>
+</ol>
+<h4>Important reports</h4>
+<div class="tbl"><table>
+<tr><th>Report</th><th>Kya sawaal answer karta hai</th></tr>
+<tr><td>Reports → Acquisition → Traffic acquisition</td><td>Sessions kahan se aaye (source/medium, campaign), kaunse channel ka engagement/conversion achha</td></tr>
+<tr><td>User acquisition</td><td>Naye users pehli baar kahan se aaye</td></tr>
+<tr><td>Engagement → Pages and screens</td><td>Kaunse pages sabse zyada dekhe, kitni der</td></tr>
+<tr><td>Engagement → Events / Key events</td><td>Kaunse actions kitni baar hue</td></tr>
+<tr><td>Monetization → E-commerce purchases</td><td>Kaunse products bike, revenue</td></tr>
+<tr><td>Advertising → Attribution</td><td>Alag attribution models mein channels ka credit, conversion paths</td></tr>
+<tr><td>Explore → Funnel exploration</td><td>Step-by-step drop-off (product view → cart → checkout → purchase)</td></tr>
+<tr><td>Explore → Path exploration</td><td>Users site pe kis raaste se chalte hain</td></tr>
+<tr><td>Explore → Free form</td><td>Custom tables: e.g. landing page × device × conversion rate</td></tr>
+</table></div>
+<h4>GA4 ki important terms</h4>
+<ul>
+<li><strong>Engaged session:</strong> 10 second se zyada, ya key event hua, ya 2+ page views. <strong>Engagement rate</strong> = engaged sessions ÷ sessions. (Bounce rate iska ulta hai.)</li>
+<li><strong>Session source/medium</strong> vs <strong>First user source/medium:</strong> pehla session ka source vs user ka original source.</li>
+<li><strong>Thresholding / sampling:</strong> chhote data pe GA4 kuch data chhupa sakta hai (privacy), aur explorations mein bade data pe sample karta hai.</li>
+<li>GA4 aur Meta/Google Ads ke numbers kabhi match nahi karenge. Alag attribution, alag counting. Trend dekho, exact match mat dhoondo.</li>
+</ul>
+
+<h3 id="m4-utm"><span class="tn">4.5</span>UTM Parameters</h3>
+<p>UTM = URL ke end mein lage tags jo GA4 ko batate hain ki traffic kahan se aaya.</p>
+<div class="formula"><span class="lbl">Example</span>https://site.com/softener?<b>utm_source</b>=facebook&amp;<b>utm_medium</b>=paid_social&amp;<b>utm_campaign</b>=diwali_sale_2026&amp;<b>utm_content</b>=ugc_video_v3&amp;<b>utm_term</b>=broad_25-45</div>
+<div class="tbl"><table>
+<tr><th>Parameter</th><th>Kya likhna hai</th><th>Example</th></tr>
+<tr><td>utm_source</td><td>Platform</td><td>facebook, instagram, google, newsletter, whatsapp</td></tr>
+<tr><td>utm_medium</td><td>Channel type</td><td>paid_social, cpc, email, sms, referral, influencer</td></tr>
+<tr><td>utm_campaign</td><td>Campaign naam</td><td>diwali_sale_2026, jee_admissions_q4</td></tr>
+<tr><td>utm_content</td><td>Kaunsa creative/link</td><td>ugc_video_v3, carousel_reviews</td></tr>
+<tr><td>utm_term</td><td>Keyword ya audience</td><td>water_softener_price, broad_25-45</td></tr>
+</table></div>
+<h4>UTM ke rules</h4>
+<ul>
+<li><strong>Lowercase hamesha.</strong> "Facebook" aur "facebook" GA4 mein do alag source ban jayenge.</li>
+<li>Spaces ki jagah underscore ya hyphen.</li>
+<li>Team ke liye ek <strong>UTM naming sheet</strong> banao aur sab usi se link banayein.</li>
+<li><strong>Meta mein dynamic parameters:</strong> Ad level → URL parameters mein <code>utm_source=facebook&amp;utm_medium=paid_social&amp;utm_campaign={{campaign.name}}&amp;utm_content={{ad.name}}</code>. Har ad ka naam automatically aa jayega.</li>
+<li><strong>Google Ads</strong> mein auto-tagging (gclid) on rakho; UTM ki zarurat nahi, GA4 linking se data aata hai.</li>
+<li>Internal links (website ke andar) pe kabhi UTM mat lagao; session toot jata hai.</li>
+<li>Influencers, WhatsApp broadcasts, QR codes (offline posters) — sabke liye alag UTM link. Tabhi pata chalega kaunsa kaam kar raha hai.</li>
+</ul>
+
+<h3 id="m4-events"><span class="tn">4.6</span>Events: kya track karna hai</h3>
+<h4>Tracking plan (measurement plan) banao</h4>
+<p>Tags lagane se pehle ek sheet banao: Business goal → KPI → Event name → Parameters → Trigger → Platforms. Ye professional tareeka hai aur client ko bhi impress karta hai.</p>
+<div class="tbl"><table>
+<tr><th>Business type</th><th>Must-track events</th></tr>
+<tr><td>E-commerce</td><td>view_item, add_to_cart, begin_checkout, add_payment_info, purchase (value, currency, transaction_id, items), view_item_list, search</td></tr>
+<tr><td>Lead gen</td><td>generate_lead (form), whatsapp_click, phone_click, form_start, file_download (brochure), scroll 75% on landing page</td></tr>
+<tr><td>Local business</td><td>phone_click, direction_click (maps), whatsapp_click, booking</td></tr>
+<tr><td>SaaS / app</td><td>sign_up, trial_start, activation (first key action), subscribe/purchase</td></tr>
+<tr><td>Content / media</td><td>scroll depth, video progress, newsletter_signup</td></tr>
+</table></div>
+<div class="box tip"><h5>Naming convention</h5><p>GA4 recommended event names use karo (purchase, generate_lead, sign_up). Custom events ke liye snake_case, lowercase: <code>whatsapp_click</code>, <code>brochure_download</code>. Ek baar naam rakha to badlo mat; history toot jaati hai.</p></div>
+
+<h3 id="m4-conv"><span class="tn">4.7</span>Conversion Tracking end-to-end</h3>
+<h4>Ek lead gen website ka complete setup example</h4>
+<ol>
+<li>Form submit → redirect to /thank-you (ya form success pe data layer event).</li>
+<li>GTM trigger "Lead Success" → fire: GA4 generate_lead (key event) · Meta Lead (with event_id) · Google Ads conversion (with enhanced conversions: hashed email/phone).</li>
+<li>Server-side: Meta CAPI Lead (same event_id) via plugin/sGTM.</li>
+<li>CRM mein lead aata hai with gclid/fbclid + UTM saved (hidden form fields).</li>
+<li>Sales team status update karti hai (qualified / won). Weekly ye data Google (offline conversion import) aur Meta (CAPI conversion leads) ko wapas jata hai.</li>
+<li>Ab dono platforms "form bharne wale" nahi, "deal close karne wale" log dhoondhte hain.</li>
+</ol>
+<h4>Verification checklist</h4>
+<ul>
+<li>GTM Preview mein tags fire ho rahe hain?</li>
+<li>GA4 DebugView / Realtime mein event dikh raha hai?</li>
+<li>Meta Test Events mein browser + server dono, "deduplicated" dikh raha hai?</li>
+<li>Google Ads conversion action status "Recording conversions" / no errors?</li>
+<li>Ek real test conversion ke baad 24-48 ghante mein sab jagah count hua?</li>
+</ul>
+
+<h3 id="m4-consent"><span class="tn">4.8</span>Consent Mode, Privacy aur DPDP</h3>
+<p><strong>Google Consent Mode v2</strong> cookie banner (CMP) aur Google tags ke beech ka bridge hai. Ye 4 signals bhejta hai:</p>
+<div class="tbl"><table>
+<tr><th>Signal</th><th>Control karta hai</th></tr>
+<tr><td><code>analytics_storage</code></td><td>Analytics cookies (GA4)</td></tr>
+<tr><td><code>ad_storage</code></td><td>Advertising cookies</td></tr>
+<tr><td><code>ad_user_data</code></td><td>User data Google ko ads ke liye bhejna</td></tr>
+<tr><td><code>ad_personalization</code></td><td>Remarketing / personalized ads</td></tr>
+</table></div>
+<ul>
+<li><strong>Basic mode:</strong> consent milne tak tags load hi nahi hote. <strong>Advanced mode:</strong> tags load hote hain par consent na mile to cookieless pings bhejte hain, jisse Google conversions <em>model</em> kar sakta hai.</li>
+<li>EEA, UK, Switzerland ke visitors ke liye Google Ads/GA4 features ke liye ye mandatory hai. Agar aapke client ke international visitors hain to zaroori.</li>
+</ul>
+<div class="box new"><h5>June 15, 2026 ka badlav</h5><p>GA4 se linked Google Ads account mein advertising data (cookies, identifiers) jayega ya nahi, iska <strong>ek hi control ab Consent Mode</strong> hai. Pehle Google Signals toggle bhi isme role play karta tha; ab Google Signals sirf signed-in users ke data se GA4 reports enrich karne tak limited hai. Isliye 2024 ke purane consent guides aadhe outdated hain — setup audit karo.</p></div>
+<h4>India: DPDP Act</h4>
+<p>Digital Personal Data Protection Act, 2023 India ka data privacy law hai, jiske rules phase-wise implement ho rahe hain. Marketer ke liye practical matlab:</p>
+<ul>
+<li>Personal data (naam, phone, email) collect karne se pehle clear notice aur consent.</li>
+<li>Sirf utna data lo jitna zaroori hai, aur jis purpose ke liye liya usi ke liye use karo.</li>
+<li>User ko data delete/withdraw karne ka option.</li>
+<li>Lead forms pe privacy policy link aur consent checkbox/line.</li>
+<li>Exact legal requirements ke liye client ko legal advisor se confirm karwane bolo. Aap marketer ho, lawyer nahi.</li>
+</ul>
+
+<h3 id="m4-server"><span class="tn">4.9</span>Server-side tracking (advanced, par future yahi hai)</h3>
+<p><strong>Server-side GTM (sGTM):</strong> browser saara data pehle aapke apne server (e.g. track.yoursite.com) pe bhejta hai, wahan se server Meta CAPI, GA4, Google Ads ko bhejta hai.</p>
+<ul>
+<li><strong>Fayde:</strong> ad blockers ka asar kam, first-party cookies zyada time tak, page speed better (kam scripts browser mein), data pe control (kya bhejna kya nahi).</li>
+<li><strong>Cost:</strong> Server hosting (Google Cloud, ya Stape jaise managed providers). Small business ke liye monthly ek chhota kharch.</li>
+<li><strong>Kab chahiye:</strong> Monthly ad spend ₹2-3 lakh+ ho, ya tracking loss noticeable ho. Beginners pehle client-side + platform CAPI integrations se shuru karein.</li>
+</ul>
+
+<h3 id="m4-attr"><span class="tn">4.10</span>Attribution: credit kisko milega</h3>
+<div class="tbl"><table>
+<tr><th>Model</th><th>Logic</th><th>Issue</th></tr>
+<tr><td><strong>Last click</strong></td><td>Aakhri click ko 100% credit</td><td>Brand search aur retargeting ko zyada credit, Meta/YouTube ko kam</td></tr>
+<tr><td><strong>Data-driven</strong> (GA4/Google Ads default)</td><td>ML se har touchpoint ka hissa decide</td><td>Black box, par generally better</td></tr>
+<tr><td><strong>Platform attribution</strong> (Meta 7-day click, 1-day view)</td><td>Har platform apne aap ko credit deta hai</td><td>Double counting; total platform conversions &gt; actual orders</td></tr>
+<tr><td><strong>MMM</strong> (Marketing Mix Modeling)</td><td>Statistical model: spend vs sales over time</td><td>Bade budget aur data chahiye. Google ka Meridian, Meta ka Robyn open-source tools hain</td></tr>
+<tr><td><strong>Incrementality / lift tests</strong></td><td>Test vs control group</td><td>Sabse sachcha, par setup aur budget chahiye</td></tr>
+</table></div>
+<div class="box tip"><h5>Practical framework (triangulation)</h5><p>Ek source of truth mat dhoondho. Teen cheezein saath dekho: (1) <strong>Business data</strong> (Shopify/CRM orders, MER), (2) <strong>Platform data</strong> (optimization ke liye), (3) <strong>GA4</strong> (cross-channel comparison). Agar Meta spend badhane pe total orders aur MER bhi badhe, to Meta kaam kar raha hai, chahe GA4 mein credit kam dikhe.</p></div>
+<h4>"How did you hear about us?" survey</h4>
+<p>Checkout ya lead form pe ek simple question: "Aapne humare baare mein kahan suna?" (Instagram / YouTube / Google / Friend / Other). Ye cheap aur surprisingly accurate signal hai, khaas karke Instagram/YouTube jaise demand-creation channels ke liye jo last-click mein credit nahi paate.</p>
+
+<h3 id="m4-report"><span class="tn">4.11</span>Reporting &amp; Dashboards</h3>
+<ul>
+<li><strong>Looker Studio</strong> (free) mein GA4, Google Ads, Sheets connect karke client dashboard. Meta data ke liye connectors (paid) ya Sheets export.</li>
+<li><strong>Report structure (client ke liye):</strong> 1. Summary (3 lines: kya hua, kyun, aage kya) → 2. Business KPIs (orders/leads, revenue, CAC, ROAS/MER) → 3. Channel breakdown → 4. Top creatives/keywords → 5. Tests aur learnings → 6. Next steps.</li>
+<li>Client ko metrics ki list nahi, <strong>decisions aur insights</strong> chahiye. "CTR 1.4% hai" ke bajaye "UGC videos ka CPA static images se 35% kam hai, isliye agle mahine 60% budget UGC pe."</li>
+</ul>
+
+<div class="task"><h5>Practice task · Module 4</h5><ol>
+<li>Ek test WordPress site pe GTM install karo.</li>
+<li>GTM se GA4 config + 3 events: generate_lead (thank-you page), whatsapp_click, phone_click. Preview mein test karo.</li>
+<li>Meta Pixel GTM template se lagao, Lead event thank-you pe. Test Events mein verify.</li>
+<li>Data retention 14 months, unwanted referrals, key events set karo.</li>
+<li>Ek UTM naming sheet banao aur 5 links banao (Instagram ad, WhatsApp broadcast, influencer, QR poster, newsletter).</li>
+<li>Ek tracking plan sheet banao: goal → KPI → event → trigger → platforms.</li>
+</ol></div>
+
+<details class="check"><summary>Self-check: 6 sawaal</summary><div class="in"><ol>
+<li>GTM mein tag, trigger, variable ka farak? <span class="ans">Tag = kya bhejna, trigger = kab, variable = dynamic value.</span></li>
+<li>GA4 mein purchases ka source "razorpay.com" aa raha hai. Fix? <span class="ans">Payment gateway domains ko unwanted referrals list mein daalo.</span></li>
+<li>utm_source=Facebook aur utm_source=facebook dono dikh rahe hain. Kyun aur fix? <span class="ans">Case-sensitive. Hamesha lowercase naming convention.</span></li>
+<li>Consent Mode v2 ke 4 signals? <span class="ans">analytics_storage, ad_storage, ad_user_data, ad_personalization.</span></li>
+<li>Meta 150 purchases dikha raha, Google 120, Shopify mein total 180 orders. Kya samjhoge? <span class="ans">Platforms overlap/double count karte hain; business truth Shopify hai. MER aur trends se judge karo.</span></li>
+<li>Lead gen mein offline conversion import kyun? <span class="ans">Taaki platform sirf form-fillers nahi, qualified/closed customers jaise log dhoondhe.</span></li>
+</ol></div></details>
+
+<div class="done-row"><button class="done-btn" data-mod="m4" aria-pressed="false">Mark complete</button></div>
+</section>
+<section class="module" id="m5" data-title="Creative Strategy & CRO">
+<div class="mod-head"><span class="mod-num">MODULE 05 · STEP 5</span><span class="mod-time">Week 11–12 · ~16 ghante</span></div>
+<h2>Creative Strategy &amp; Conversion Rate Optimization</h2>
+<p>2026 mein ye do skills performance marketer ki asli "unfair advantage" hain. Targeting aur bidding AI kar raha hai; <strong>kya bolna hai</strong> (creative) aur <strong>click ke baad kya hota hai</strong> (CRO) — ye abhi bhi insaan ke haath mein hai. Do accounts same budget, same targeting pe chalein, to farak inhi do cheezon se aata hai.</p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Customer research se ad angles nikaal paoge</li>
+<li>Hooks, offers, UGC, static aur video ads ka structure bana paoge</li>
+<li>Creative testing ka system chala paoge</li>
+<li>Landing page ka CRO audit kar paoge aur A/B tests design kar paoge</li>
+</ul></div>
+
+<h3 id="m5-research"><span class="tn">5.1</span>Creative Strategy ki shuruaat: customer research</h3>
+<p>Achha ad "creativity" se nahi, <strong>customer ki apni language</strong> se banta hai. Ad likhne se pehle ye research karo:</p>
+<div class="tbl"><table>
+<tr><th>Source</th><th>Kya nikaalna hai</th></tr>
+<tr><td>Amazon/Flipkart reviews (apne + competitors)</td><td>5-star mein kya pasand aaya (desires), 1-2 star mein kya bura laga (objections, pain)</td></tr>
+<tr><td>Google reviews, YouTube comments, Reddit, Quora</td><td>Real words aur phrases jo log use karte hain</td></tr>
+<tr><td>Sales team / customer support calls</td><td>Top 10 sawaal aur objections ("kitne din chalega?", "COD hai?")</td></tr>
+<tr><td>WhatsApp chats of customers</td><td>Purchase se pehle kya poochte hain</td></tr>
+<tr><td>Meta Ad Library</td><td>Competitors kaunse angles chala rahe hain, kaunse ads mahino se chal rahe hain (lambe chalne wale = profitable)</td></tr>
+<tr><td>Customer survey / calls (5-10 customers)</td><td>"Khareedne se pehle kya problem thi? Humein kyun chuna? Kya doubt tha?"</td></tr>
+</table></div>
+<p>Is research ko ek <strong>"Customer Voice" sheet</strong> mein daalo: Pain points · Desires · Objections · Exact phrases · Personas. Har ad isi sheet se banega.</p>
+
+<h3 id="m5-hooks"><span class="tn">5.2</span>Hooks</h3>
+<p>Hook = ad ke pehle 1-3 second (video) ya pehli line/visual (static). Agar hook fail, to baaki ad koi nahi dekhega. Feed mein aapke ad ka competition doosre ads se nahi, <strong>dost ki reel aur memes</strong> se hai.</p>
+<div class="tbl"><table>
+<tr><th>Hook type</th><th>Example</th></tr>
+<tr><td><strong>Call-out</strong> (audience ko pukaaro)</td><td>"Bhopal mein ghar hai aur taps pe safed daag aate hain? Ye dekho."</td></tr>
+<tr><td><strong>Problem statement</strong></td><td>"Har mahine ₹800 ka shampoo, phir bhi baal jhad rahe hain?"</td></tr>
+<tr><td><strong>Curiosity gap</strong></td><td>"Mera plumber ne ek cheez batayi jo kisi company ne nahi batayi..."</td></tr>
+<tr><td><strong>Bold claim / result</strong></td><td>"14 din, 0 scaling. Ye hamari bathroom ki before-after hai."</td></tr>
+<tr><td><strong>Contrarian</strong></td><td>"RO lagwana band karo. Pehle ye test karo."</td></tr>
+<tr><td><strong>Mistake</strong></td><td>"Ye 3 galtiyan 90% parents JEE coaching chunte waqt karte hain."</td></tr>
+<tr><td><strong>Story open</strong></td><td>"Pichhle saal Diwali pe humare saath kuch aisa hua..."</td></tr>
+<tr><td><strong>Visual pattern interrupt</strong></td><td>Unexpected visual: paani mein kuch daalna, product todna, close-up texture</td></tr>
+<tr><td><strong>Social proof</strong></td><td>"2,000 Bhopal families ne ye switch kiya. Kyun?"</td></tr>
+<tr><td><strong>Question</strong></td><td>"Aapka paani hard hai ya soft? 10 second mein pata karo."</td></tr>
+</table></div>
+<div class="box tip"><h5>Hook = 3 layers</h5><p>Video hook mein teen cheezein saath kaam karti hain: <strong>visual</strong> (pehla frame), <strong>text overlay</strong> (sound off mein bhi samajh aaye), <strong>spoken line</strong>. Teeno ek hi message ko support karein. Ek hi video ke 3-5 alag hooks bana ke test karna sabse sasta creative test hai.</p></div>
+
+<h3 id="m5-pain"><span class="tn">5.3</span>Pain Points &amp; Desires</h3>
+<p><strong>Pain point</strong> = jo dard customer abhi feel kar raha hai. <strong>Desire</strong> = jo future wo chahta hai. Ad dono ke beech ka bridge dikhata hai: "Abhi ye problem hai → hamare saath ye life".</p>
+<h4>Pain/desire ki depth (surface se deep tak)</h4>
+<div class="tbl"><table>
+<tr><th>Level</th><th>Example: JEE coaching (parent ke liye)</th></tr>
+<tr><td>Surface</td><td>Bachche ko achhi coaching chahiye</td></tr>
+<tr><td>Functional</td><td>Doubt clear nahi hote, test series kamzor hai</td></tr>
+<tr><td>Emotional</td><td>Dar ki bachcha peeche reh jayega, paisa waste hoga</td></tr>
+<tr><td>Identity</td><td>"Main achha parent hoon jo bachche ke future ke liye sahi decision leta hai"</td></tr>
+</table></div>
+<p>Deeper level pe baat karne wale ads zyada connect karte hain. Par claim honest hona chahiye; fear-mongering aur jhoothe promises brand ko lambi race mein nuksan dete hain (aur Meta policy bhi tod sakte hain).</p>
+
+<h3 id="m5-offers"><span class="tn">5.4</span>Offers</h3>
+<p>Offer sirf discount nahi hai. Offer = poora deal jo customer ko milta hai: product + price + bonus + guarantee + urgency.</p>
+<div class="formula"><span class="lbl">Value equation (perceived value)</span>Value ↑ = (Dream outcome × Believability) ÷ (Time to result × Effort / risk)</div>
+<div class="tbl"><table>
+<tr><th>Offer type</th><th>Example</th><th>Kab achha</th></tr>
+<tr><td>Percentage off</td><td>20% off</td><td>High price items, festive sales</td></tr>
+<tr><td>Flat ₹ off</td><td>₹300 off</td><td>Low price items (₹1,000 pe "₹300 off" &gt; "30% off" lagta hai)</td></tr>
+<tr><td>Bundle</td><td>"Complete hair kit" 3 products</td><td>AOV badhana</td></tr>
+<tr><td>BOGO / free gift</td><td>"Serum ke saath free pouch"</td><td>Margin bachana (gift ka cost discount se kam)</td></tr>
+<tr><td>Free trial / demo</td><td>"Free home water test", "Free demo class"</td><td>Services, high-ticket, education</td></tr>
+<tr><td>Guarantee</td><td>"30-day money back", "Result nahi to fee wapas"</td><td>Trust kam ho, naya brand</td></tr>
+<tr><td>Payment ease</td><td>No-cost EMI, COD, "₹99 mein book karo"</td><td>High-ticket, India mein bahut powerful</td></tr>
+<tr><td>Lead magnet</td><td>Free guide, checklist, price list PDF, calculator</td><td>B2B, lead gen</td></tr>
+</table></div>
+<div class="box warn"><h5>Offer discipline</h5><p>Har mahine sale chalaoge to customer full price pe kabhi nahi khareedega. Offer calendar banao (festive, launch, end of season) aur baaki time value/benefit ads chalao. Discount dene se pehle break-even ROAS dobara calculate karo — 20% off margin ko bahut kam kar deta hai.</p></div>
+
+<h3 id="m5-angles"><span class="tn">5.5</span>Ad Angles</h3>
+<p>Angle = kis "nazariye" se product ko pitch kar rahe ho. Ek hi product ke 10 angles ho sakte hain, aur har angle alag type ke logon ko pakadta hai. Andromeda era mein <strong>angle diversity hi targeting hai.</strong></p>
+<div class="cards">
+<div class="card"><b>Problem-solution</b><p>Problem dikhao, product solution.</p></div>
+<div class="card"><b>Us vs them</b><p>Alternatives se comparison (bina competitor ka naam liye).</p></div>
+<div class="card"><b>Cost of inaction</b><p>"Kuch na karne ka nuksan" — money, health, time.</p></div>
+<div class="card"><b>Social proof</b><p>Reviews, numbers, testimonials compilation.</p></div>
+<div class="card"><b>Founder story</b><p>Brand kyun banaya, kya alag hai.</p></div>
+<div class="card"><b>Education / myth-busting</b><p>"Log sochte hain X, sach Y hai".</p></div>
+<div class="card"><b>Persona-specific</b><p>Working women, students, new parents, small shop owners.</p></div>
+<div class="card"><b>Occasion</b><p>Diwali gifting, wedding season, exam time, monsoon.</p></div>
+<div class="card"><b>Behind the scenes</b><p>Kaise banta hai, quality check, factory.</p></div>
+<div class="card"><b>Objection handling</b><p>"Mehenga hai?" → per day cost; "Kaam karega?" → guarantee.</p></div>
+</div>
+<h4>Creative matrix (systematic tareeka)</h4>
+<p>Ek table banao: rows mein <strong>angles</strong> (5-6), columns mein <strong>personas</strong> (2-3) aur <strong>formats</strong> (UGC video, static, carousel). Har cell ek ad idea hai. Isse random creatives ki jagah planned diversity milti hai.</p>
+
+<h3 id="m5-ugc"><span class="tn">5.6</span>UGC (User Generated Content)</h3>
+<p>UGC = aam logon jaisa dikhne wala content (phone se shoot, real feel). Ye ads jaisa nahi lagta isliye log rukte hain aur trust karte hain.</p>
+<h4>UGC formats</h4>
+<ul>
+<li><strong>Testimonial:</strong> "Maine 2 mahine use kiya, ye hua."</li>
+<li><strong>Unboxing / first impression</strong></li>
+<li><strong>Problem-solution demo:</strong> before → use → after</li>
+<li><strong>"3 reasons why I switched"</strong> listicle</li>
+<li><strong>Talking head + B-roll</strong></li>
+<li><strong>Street interview / reaction</strong></li>
+<li><strong>Green screen</strong> (creator review screenshots ke saamne)</li>
+</ul>
+<h4>UGC creators kaise laayein</h4>
+<ul>
+<li>Existing happy customers se (free product/discount ke badle).</li>
+<li>Instagram pe micro-creators (5k-50k followers) jinki audience aapki category ki hai.</li>
+<li>UGC platforms/marketplaces aur freelance creators.</li>
+<li><strong>Usage rights</strong> likhit mein lo: kitne time tak, kaunse platforms pe ads mein use kar sakte ho.</li>
+<li><strong>Partnership ads</strong> (Meta): creator ke handle se ad chalao. Inka CTR aur trust aksar brand handle se better hota hai.</li>
+</ul>
+<h4>Creator brief template</h4>
+<div class="box example"><ul>
+<li><strong>Product &amp; ek line mein kya karta hai</strong></li>
+<li><strong>Target persona</strong> (kisse baat kar rahe ho)</li>
+<li><strong>Angle</strong> + 3 hook options (creator apne words mein bole)</li>
+<li><strong>Must-say points</strong> (3 max) aur <strong>don'ts</strong> (medical claims nahi, competitor naam nahi)</li>
+<li><strong>Shots list:</strong> face close-up, product in hand, usage, result</li>
+<li><strong>Format:</strong> 9:16, 20-45 sec, natural light, raw footage bhi bhejein</li>
+<li><strong>CTA</strong></li>
+</ul></div>
+
+<h3 id="m5-static"><span class="tn">5.7</span>Static Creatives</h3>
+<p>Static images banana sasta aur fast hai, aur bahut accounts mein abhi bhi top performers hote hain (especially retargeting aur offers ke liye).</p>
+<div class="tbl"><table>
+<tr><th>Static format</th><th>Kya dikhata hai</th></tr>
+<tr><td>Product hero + benefit headline</td><td>Clean product shot, 1 bada benefit</td></tr>
+<tr><td>Review/testimonial card</td><td>Real customer quote + star rating + photo</td></tr>
+<tr><td>Us vs them table</td><td>Aapka product vs "normal" option, ticks/crosses</td></tr>
+<tr><td>Before / after</td><td>(Policy check karo — health/beauty mein restricted)</td></tr>
+<tr><td>Feature callouts</td><td>Product image ke around arrows + features</td></tr>
+<tr><td>Native / meme style</td><td>Notes app screenshot, tweet-style, WhatsApp chat style</td></tr>
+<tr><td>Offer banner</td><td>Bada offer, deadline, CTA (retargeting)</td></tr>
+<tr><td>Carousel</td><td>Step-by-step, multiple products, story in slides</td></tr>
+</table></div>
+<h4>Design rules</h4>
+<ul>
+<li>Ek ad = ek message. 3 second mein samajh aana chahiye.</li>
+<li>Mobile pe readable text (bada font, high contrast).</li>
+<li>Brand logo chhota, product clear.</li>
+<li>4:5 feed ke liye, 9:16 stories/reels ke liye (safe zones ka dhyan).</li>
+<li>Thumb-stop colors: feed ke background se contrast.</li>
+</ul>
+
+<h3 id="m5-video"><span class="tn">5.8</span>Video Ads</h3>
+<h4>Short-form ad structure (15-45 sec)</h4>
+<div class="tbl"><table>
+<tr><th>Time</th><th>Part</th><th>Kaam</th></tr>
+<tr><td>0–3s</td><td>Hook</td><td>Scroll rokna (visual + text + voice)</td></tr>
+<tr><td>3–10s</td><td>Problem / context</td><td>"Haan, ye mere saath bhi hota hai" feel</td></tr>
+<tr><td>10–25s</td><td>Solution + demo</td><td>Product kaise kaam karta hai, dikhao (sirf bolo mat)</td></tr>
+<tr><td>25–35s</td><td>Proof</td><td>Reviews, results, numbers, certifications</td></tr>
+<tr><td>35–45s</td><td>Offer + CTA</td><td>Kya karna hai, abhi kyun</td></tr>
+</table></div>
+<ul>
+<li><strong>Captions hamesha</strong> — bahut log sound off mein dekhte hain.</li>
+<li><strong>Har 2-3 second mein visual change</strong> (cut, zoom, angle) taaki attention bana rahe.</li>
+<li><strong>Native feel</strong> &gt; over-produced TV ad, especially Reels/Shorts mein.</li>
+<li><strong>Modular editing:</strong> 5 hooks × 2 bodies × 2 CTAs = 20 variations ek shoot se.</li>
+<li>Trending audio organic ke liye theek; ads mein licensed music use karo (Meta Sound Collection) warna copyright issue.</li>
+</ul>
+
+<h3 id="m5-test"><span class="tn">5.9</span>Creative Testing System</h3>
+<ol>
+<li><strong>Hypothesis likho:</strong> "Cost-of-inaction angle, problem-aware audience ke liye, social proof angle se kam CPA dega kyunki..."</li>
+<li><strong>Ek variable test karo:</strong> Angle test (alag messages), ya hook test (same body, alag openings), ya format test.</li>
+<li><strong>Testing campaign</strong> (ABO ya Advantage+ with new ads), har concept ko barabar mauka.</li>
+<li><strong>Kaafi data:</strong> har ad pe kam se kam 1-2x target CPA spend, ya kuch hazaar impressions, judge karne se pehle.</li>
+<li><strong>Metrics ladder:</strong> Hook rate → CTR → CPC → CVR → CPA/ROAS. Early signals (hook rate, CTR) se losers jaldi pakdo.</li>
+<li><strong>Winner ko scaling campaign mein</strong> move karo (post ID se taaki social proof/likes saath rahein).</li>
+<li><strong>Learning log</strong> maintain karo: date, concept, angle, result, insight. 3 mahine baad ye aapki sabse valuable file hogi.</li>
+</ol>
+<div class="box tip"><h5>Kitne creatives chahiye?</h5><p>Rough guide: chhote accounts (₹1-3 lakh/month) — 4-8 naye creatives per month. Medium (₹5-20 lakh) — 10-20. Bade accounts — 30+. Creative fatigue ka sign: frequency badh rahi, CTR gir raha, CPA badh raha same audience pe.</p></div>
+
+<h3 id="m5-cro"><span class="tn">5.10</span>CRO: Landing Page Optimization</h3>
+<p>Ad customer ko darwaze tak laata hai; landing page usse andar bulata hai. CVR 2% se 3% hone ka matlab hai CPA 33% kam — bina ad spend badhaye.</p>
+<h4>Headline</h4>
+<ul>
+<li>Ad ka promise turant repeat ho (message match).</li>
+<li>Outcome bolo, feature nahi: "Hard water se hair fall band" &gt; "Advanced ion-exchange technology".</li>
+<li>Subheadline mein "kaise" aur "kisko".</li>
+<li>5-second test: kisi ko page 5 sec dikhao, poocho kya bechte ho aur kisko. Nahi bata paya to headline fail.</li>
+</ul>
+<h4>Offer</h4>
+<ul>
+<li>Offer above the fold dikhe: price, discount, free gift, guarantee.</li>
+<li>Price ke saath value justify karo: per-day cost, comparison, kya-kya milega list.</li>
+<li>Shipping cost aur delivery time pehle hi batao (checkout pe surprise = cart abandonment).</li>
+</ul>
+<h4>CTA</h4>
+<ul>
+<li>Action + benefit: "Free Demo Book Karein" &gt; "Submit".</li>
+<li>Ek page = ek primary CTA. Baar-baar repeat karo (top, middle, bottom, sticky on mobile).</li>
+<li>Button contrast mein dikhe; pass mein risk-reducer text: "No spam · 2 minute ka form · COD available".</li>
+</ul>
+<h4>Social Proof</h4>
+<ul>
+<li>Star rating + review count headline ke paas.</li>
+<li>Real photos/videos of customers (stock photos trust kam karti hain).</li>
+<li>Specific numbers: "2,137 orders" &gt; "thousands of orders".</li>
+<li>Local proof: "Arera Colony, Kolar, MP Nagar mein 300+ installations".</li>
+<li>Logos (clients, media, certifications), awards, years in business.</li>
+</ul>
+<h4>Page Speed</h4>
+<p>Google ke <strong>Core Web Vitals</strong> targets:</p>
+<div class="tbl"><table>
+<tr><th>Metric</th><th>Kya measure karta hai</th><th class="num">Good</th></tr>
+<tr><td>LCP (Largest Contentful Paint)</td><td>Main content kitni der mein dikha</td><td class="num">≤ 2.5s</td></tr>
+<tr><td>INP (Interaction to Next Paint)</td><td>Click/tap ka response kitna fast</td><td class="num">≤ 200ms</td></tr>
+<tr><td>CLS (Cumulative Layout Shift)</td><td>Page load hote waqt cheezein kitna hilti hain</td><td class="num">≤ 0.1</td></tr>
+</table></div>
+<p>Check karo: PageSpeed Insights (mobile score), GA4 page load data. Common fixes: images ko WebP/AVIF mein compress, lazy-load below-fold images, kam plugins, fast hosting + CDN, heavy sliders/popups hatao, unused scripts hatao, fonts kam.</p>
+<h4>Form Length</h4>
+<ul>
+<li>Har extra field conversions kam karti hai — par quality badha sakti hai. Balance chahiye.</li>
+<li>Minimum: naam + phone (India mein phone &gt; email). Baaki baad mein call pe.</li>
+<li>High-ticket mein qualifying fields (budget, timeline) rakhna theek hai.</li>
+<li><strong>Multi-step form:</strong> pehle aasaan sawaal (aapko kya chahiye?), phir contact details. Commitment principle se completion badhti hai.</li>
+<li>Phone field mein input type "tel", auto +91, inline validation.</li>
+</ul>
+<h4>Checkout Experience (e-commerce)</h4>
+<ul>
+<li><strong>Guest checkout</strong> — account banane pe force mat karo.</li>
+<li><strong>Payment options:</strong> UPI (sabse popular), cards, wallets, net banking, COD, BNPL/EMI.</li>
+<li><strong>COD strategy:</strong> COD conversions badhata hai par RTO (return to origin) bhi. Tools: COD pe small fee, prepaid pe extra discount, OTP/WhatsApp confirmation of COD orders, pin-code wise COD.</li>
+<li><strong>One-click / fast checkout</strong> solutions (address auto-fill via phone number) India mein checkout drop-off kaafi kam karte hain.</li>
+<li>Trust badges payment section ke paas, return policy link.</li>
+<li><strong>Abandoned cart recovery:</strong> WhatsApp + SMS + email reminders (1 ghanta, 24 ghante, 72 ghante).</li>
+</ul>
+
+<h3 id="m5-ab"><span class="tn">5.11</span>A/B Testing</h3>
+<ol>
+<li><strong>Research se problem pakdo:</strong> GA4 funnel exploration (kahan drop ho rahe), heatmaps aur session recordings (Microsoft Clarity — free), user surveys.</li>
+<li><strong>Hypothesis:</strong> "Agar hum price ke saath per-day cost dikhayein, to price objection kam hoga aur CVR badhega."</li>
+<li><strong>Prioritize:</strong> ICE score — Impact, Confidence, Ease (1-10 each).</li>
+<li><strong>Test setup:</strong> 50/50 traffic split. Tools: VWO, Convert, Shopify apps, ya Meta/Google ke experiments (alag landing pages ko alag ads se).</li>
+<li><strong>Sample size:</strong> Har version pe kaafi conversions (rough minimum ~100 per variant achhe decision ke liye; kam traffic mein sirf bade changes test karo).</li>
+<li><strong>Duration:</strong> Kam se kam 1-2 full weeks (weekday/weekend behaviour alag hota hai). Beech mein winner declare mat karo.</li>
+<li><strong>Statistical significance</strong> ~95% confidence. Online calculators use karo.</li>
+<li><strong>Document:</strong> jeeta ho ya haara, learning likho.</li>
+</ol>
+<div class="box mistake"><h5>CRO galtiyan</h5><ul>
+<li>Button ka colour test karna jab headline hi confusing hai. Pehle bade levers.</li>
+<li>2 din, 15 conversions pe winner declare karna.</li>
+<li>Ek saath 5 cheezein badalna aur phir pata na chalna kya kaam kiya (ye A/B test nahi, redesign hai — wo bhi theek hai, bas naam sahi do).</li>
+<li>Desktop pe test karna jabki 80% traffic mobile hai.</li>
+</ul></div>
+
+<h3 id="m5-audit"><span class="tn">5.12</span>Landing page CRO audit checklist</h3>
+<div class="tbl"><table>
+<tr><th>Area</th><th>Check</th></tr>
+<tr><td>Message match</td><td>Ad headline/offer page ke top pe repeat hota hai?</td></tr>
+<tr><td>Clarity</td><td>5 second mein kya, kisko, kyun samajh aata hai?</td></tr>
+<tr><td>Above the fold (mobile)</td><td>Headline, benefit, proof, CTA bina scroll ke?</td></tr>
+<tr><td>Offer</td><td>Price, discount, shipping, guarantee clear?</td></tr>
+<tr><td>Proof</td><td>Reviews, ratings, real photos, numbers?</td></tr>
+<tr><td>Objections</td><td>FAQ section top 5-8 objections ka answer deta hai?</td></tr>
+<tr><td>CTA</td><td>Clear, repeated, sticky on mobile, WhatsApp option?</td></tr>
+<tr><td>Speed</td><td>Mobile LCP ≤ 2.5s?</td></tr>
+<tr><td>Form/checkout</td><td>Minimum fields, UPI/COD, guest checkout?</td></tr>
+<tr><td>Trust</td><td>Contact details, address, policies, secure payment?</td></tr>
+<tr><td>Distractions</td><td>Unnecessary menu links, popups, sliders hatayein?</td></tr>
+<tr><td>Tracking</td><td>Conversion events sahi fire ho rahe hain?</td></tr>
+</table></div>
+
+<div class="task"><h5>Practice task · Module 5</h5><ol>
+<li>Ek product chuno. Amazon/Google reviews se Customer Voice sheet banao: 10 pains, 10 desires, 10 objections, 15 exact phrases.</li>
+<li>5 angles × 2 personas ka creative matrix banao.</li>
+<li>Ek UGC video ka script likho (hook-problem-solution-proof-CTA) aur uske 5 alternate hooks.</li>
+<li>Canva mein 4 static ads banao: review card, us-vs-them, feature callout, offer banner.</li>
+<li>Kisi bhi ek brand ke landing page ka upar wali checklist se audit karo aur 5 A/B test ideas ICE score ke saath likho.</li>
+</ol></div>
+
+<details class="check"><summary>Self-check: 6 sawaal</summary><div class="in"><ol>
+<li>Andromeda era mein creative diversity kyun zaroori hai? <span class="ans">Algorithm creative ke message se decide karta hai ad kise dikhana hai; alag angles = alag audiences tak pahunch.</span></li>
+<li>Hook rate high, hold rate low. Kya fix? <span class="ans">Opening theek hai; video ka beech ka part (body) boring/slow hai — pacing, demo, proof improve karo.</span></li>
+<li>₹999 product pe "30% off" ya "₹300 off"? <span class="ans">Lower price pe flat ₹ amount generally bada lagta hai; test karo.</span></li>
+<li>CVR 2% se 3% hua. CPA pe kya asar? <span class="ans">CPA ~33% kam (CPC same maan ke).</span></li>
+<li>Core Web Vitals ke 3 metrics aur good thresholds? <span class="ans">LCP ≤2.5s, INP ≤200ms, CLS ≤0.1.</span></li>
+<li>COD se RTO badh raha hai. 3 solutions? <span class="ans">COD fee/prepaid discount, COD order confirmation via WhatsApp/OTP, high-RTO pin codes pe COD band.</span></li>
+</ol></div></details>
+
+<div class="done-row"><button class="done-btn" data-mod="m5" aria-pressed="false">Mark complete</button></div>
+</section>
+<section class="module" id="m6" data-title="AI Tools for Performance Marketers">
+<div class="mod-head"><span class="mod-num">MODULE 06 · STEP 6</span><span class="mod-time">Week 12 · ~8 ghante</span></div>
+<h2>AI Tools for Performance Marketers</h2>
+<p>AI aapki jagah nahi lega. Par jo marketer AI use karta hai, wo uski jagah le lega jo nahi karta. Is module mein tools ki list se zyada <strong>workflows</strong> par focus hai, kyunki tools har 6 mahine badalte hain, workflows nahi.</p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Research, copy, creative, analysis aur reporting mein AI use kar paoge</li>
+<li>Achhe prompts likh paoge jo generic output nahi dete</li>
+<li>Platform ke andar ke AI features (Meta, Google) samajh ke control kar paoge</li>
+<li>AI ki limits aur risks pehchaan paoge</li>
+</ul></div>
+
+<h3 id="m6-map"><span class="tn">6.1</span>AI tools ka map (category wise)</h3>
+<div class="tbl"><table>
+<tr><th>Kaam</th><th>Tool type</th><th>Examples (2026)</th></tr>
+<tr><td>Research, strategy, copy, analysis</td><td>General AI assistants</td><td>ChatGPT, Claude, Gemini, Perplexity (web research)</td></tr>
+<tr><td>Images / static ads</td><td>Image generation + design</td><td>Canva (AI features), Adobe Firefly, Midjourney, Ideogram, Gemini/ChatGPT image tools</td></tr>
+<tr><td>Video editing</td><td>AI video editors</td><td>CapCut, Descript, Captions, auto-subtitles tools</td></tr>
+<tr><td>Video generation / avatars</td><td>Generative video</td><td>Google Veo, Runway, Kling, HeyGen (avatars, dubbing)</td></tr>
+<tr><td>Voice</td><td>Voiceover, dubbing</td><td>ElevenLabs, regional language dubbing tools</td></tr>
+<tr><td>Inside ad platforms</td><td>Native AI</td><td>Meta Advantage+ creative (text variations, image expansion, backgrounds), Google asset generation in PMax/AI Max, Gemini in Google Ads</td></tr>
+<tr><td>Analytics</td><td>Data + AI</td><td>GA4 insights, Sheets/Excel with AI, AI assistants with file upload</td></tr>
+<tr><td>Automation</td><td>Workflows</td><td>Zapier, Make, n8n, Pabbly (lead routing, reports, alerts)</td></tr>
+<tr><td>Competitor research</td><td>Ad intelligence</td><td>Meta Ad Library, Google Ads Transparency Center (free) + paid spy tools</td></tr>
+</table></div>
+<div class="box warn"><h5>Tool names badalte rahenge</h5><p>Upar ke examples Oct 2026 ke hisaab se hain. Har 6 mahine mein naye tools aate hain. Kisi bhi tool ko evaluate karo: output quality, Hindi/Hinglish support, commercial use rights, data privacy, cost per output.</p></div>
+
+<h3 id="m6-workflows"><span class="tn">6.2</span>10 high-value AI workflows</h3>
+<div class="tbl"><table>
+<tr><th>#</th><th>Workflow</th><th>Kaise</th></tr>
+<tr><td>1</td><td>Review mining</td><td>500 reviews paste/upload karo → "pains, desires, objections, exact phrases categorize karo, frequency ke saath"</td></tr>
+<tr><td>2</td><td>Persona banana</td><td>Research data se 3 personas: demographics, situation, triggers, objections, kahan online time bitaate hain</td></tr>
+<tr><td>3</td><td>Angle brainstorming</td><td>Persona + product → 20 angles, har ek ka hook aur proof idea</td></tr>
+<tr><td>4</td><td>Hook generation</td><td>Ek angle ke 15 hooks, alag hook types mein, Hinglish mein</td></tr>
+<tr><td>5</td><td>UGC script + creator brief</td><td>15/30/45 sec scripts, shot list ke saath</td></tr>
+<tr><td>6</td><td>RSA writing</td><td>Keywords + USP → 15 headlines (≤30 chars), 4 descriptions (≤90 chars). Character count khud verify karo</td></tr>
+<tr><td>7</td><td>Static ad variations</td><td>Ek winning static ke 10 variations: background, headline, format (AI image tools + Canva)</td></tr>
+<tr><td>8</td><td>Performance analysis</td><td>Ads Manager export (CSV) upload → "top/bottom 10 ads, patterns, kya common hai, next tests suggest karo"</td></tr>
+<tr><td>9</td><td>Report writing</td><td>Numbers do → client-friendly summary: kya hua, kyun, next steps</td></tr>
+<tr><td>10</td><td>Landing page copy + CRO audit</td><td>Page ka screenshot/text do → checklist ke against audit, rewrite suggestions</td></tr>
+</table></div>
+
+<h3 id="m6-prompts"><span class="tn">6.3</span>Prompting jo generic output na de</h3>
+<h4>Prompt ka structure: R-C-T-F-E</h4>
+<ul>
+<li><strong>Role:</strong> "Tum ek senior performance creative strategist ho jo Indian D2C brands ke saath kaam karte ho."</li>
+<li><strong>Context:</strong> Product, price, audience, competitors, kya pehle try kiya, kya kaam kiya, research data.</li>
+<li><strong>Task:</strong> Exactly kya chahiye.</li>
+<li><strong>Format:</strong> Table, word limit, language (Hinglish), number of options.</li>
+<li><strong>Examples / constraints:</strong> Achhe aur bure examples, brand voice, banned words, policy limits.</li>
+</ul>
+<div class="box example"><h5>Example prompt</h5>
+<p>"Tum ek senior performance creative strategist ho jo Indian D2C home appliance brands ke saath kaam karte ho.</p>
+<p>Context: Hum Bhopal mein water softener bechte hain, ₹14,999 se start, free installation, 5-year warranty. Customers 30-50 saal ke homeowners hain jo hard water se hair fall, skin dryness aur bathroom fittings pe safed daag se pareshan hain. Neeche 40 customer reviews paste kar raha hoon. [reviews]</p>
+<p>Task: Meta Reels ke liye 10 alag ad angles do. Har angle ke liye: angle ka naam, target persona, 3 hooks (Hinglish, max 12 words), core message, proof element, CTA.</p>
+<p>Format: Table. Constraints: koi medical claim nahi ('cure', 'guaranteed'), competitor ka naam nahi, fake urgency nahi."</p></div>
+<ul>
+<li><strong>Iterate:</strong> Pehla output kabhi final nahi. "Hooks 5 aur 8 achhe hain, unke jaise 10 aur, zyada specific numbers ke saath."</li>
+<li><strong>Apna data do:</strong> AI ke paas aapke customer ki info nahi hai. Jitna real data doge, utna kam generic.</li>
+<li><strong>Critique mangwao:</strong> "Is ad script ko ek skeptical 45-saal ke customer ki nazar se critique karo."</li>
+</ul>
+
+<h3 id="m6-platform"><span class="tn">6.4</span>Platform ke andar ka AI</h3>
+<div class="tbl"><table>
+<tr><th>Platform feature</th><th>Kya karta hai</th><th>Aapka control</th></tr>
+<tr><td>Meta Advantage+ creative enhancements</td><td>Text variations, image brightness/crop, backgrounds, music, image animation, translations</td><td>Har enhancement individually on/off. Brand-sensitive clients ke liye review karo kya dikh raha hai</td></tr>
+<tr><td>Meta generative AI ad tools</td><td>Product image se backgrounds, image expansion (9:16), text suggestions</td><td>Use karne se pehle preview, brand guidelines check</td></tr>
+<tr><td>Google AI Max text customization</td><td>Search ke hisaab se ad text adjust</td><td>Brand guidelines, URL exclusions, asset review</td></tr>
+<tr><td>Google PMax / Demand Gen asset generation</td><td>Headlines, images auto-generate</td><td>Generated assets review aur remove kar sakte ho</td></tr>
+<tr><td>Google Ads recommendations / Gemini</td><td>Suggestions, campaign creation help</td><td>Auto-apply off; har suggestion samajh ke apply</td></tr>
+</table></div>
+
+<h3 id="m6-auto"><span class="tn">6.5</span>Automation workflows (time bachao)</h3>
+<ul>
+<li><strong>Lead routing:</strong> Meta lead form → Google Sheet + WhatsApp message to sales team + auto WhatsApp to lead ("Thanks, 10 min mein call aayega").</li>
+<li><strong>Daily spend alert:</strong> Agar kisi campaign ka CPA target ka 2x ho jaye to email/Slack alert (Google Ads scripts ya automation tools).</li>
+<li><strong>Weekly report:</strong> Platform data → Sheets → Looker Studio dashboard → AI summary draft → aap review karke bhejo.</li>
+<li><strong>Google Ads scripts:</strong> Broken URL checker, budget pacing, search terms alerts. Ready-made scripts online available hain.</li>
+<li><strong>Offline conversions:</strong> CRM status change → automatically Meta CAPI / Google offline import.</li>
+</ul>
+
+<h3 id="m6-limits"><span class="tn">6.6</span>AI ke risks aur rules</h3>
+<div class="box mistake"><h5>Kabhi mat karo</h5><ul>
+<li>AI ke numbers/facts bina check kiye client ko bhejna. AI confidently galat bol sakta hai (hallucination), especially platform features aur statistics pe.</li>
+<li>Client ka sensitive data (customer phone numbers, revenue) bina permission public AI tools mein daalna. Company policy aur DPDP ka dhyan rakho.</li>
+<li>AI-generated "real customer" testimonials ya fake reviews. Ye unethical hai, illegal ho sakta hai, aur platform ban karwa sakta hai.</li>
+<li>Real logon ke face/voice ka deepfake bina consent.</li>
+<li>AI se banayi har image ko bina dekhe chala dena — hands, text, product details mein galtiyan hoti hain.</li>
+</ul></div>
+<div class="box tip"><h5>Disclosure</h5><p>Meta aur Google realistic AI-generated/edited content ke liye labels aur policies rakhte hain, khaas karke social issues, politics aur realistic people ke case mein. Apne category ki current policy check karo.</p></div>
+
+<div class="task"><h5>Practice task · Module 6</h5><ol>
+<li>Module 5 wali Customer Voice sheet AI ki madad se banao (reviews paste karke). Manual wali se compare karo.</li>
+<li>R-C-T-F-E structure se 20 hooks generate karo, top 5 chuno aur kyun chune likho.</li>
+<li>Ek AI image tool se 4 static ad variations banao.</li>
+<li>Ek sample Ads Manager CSV (apna ya dummy) AI ko de ke analysis karwao; uske suggestions ko khud verify karo.</li>
+<li>Zapier/Make/Pabbly mein ek lead routing automation banao (form → sheet → email).</li>
+</ol></div>
+
+<details class="check"><summary>Self-check: 4 sawaal</summary><div class="in"><ol>
+<li>Generic AI output ka sabse bada kaaran? <span class="ans">Context aur real data na dena. AI ko apna customer research, product details aur constraints do.</span></li>
+<li>R-C-T-F-E kya hai? <span class="ans">Role, Context, Task, Format, Examples/constraints.</span></li>
+<li>Meta Advantage+ creative enhancements kab carefully use karoge? <span class="ans">Strict brand guidelines wale clients, regulated categories; har enhancement individually review/disable.</span></li>
+<li>AI se testimonial likhwa ke ad mein "customer review" bolke chalana theek hai? <span class="ans">Nahi. Fake reviews unethical, policy violation aur legal risk hain.</span></li>
+</ol></div></details>
+
+<div class="done-row"><button class="done-btn" data-mod="m6" aria-pressed="false">Mark complete</button></div>
+</section>
+
+
+<section class="module" id="m7" data-title="Portfolio & Real-World Projects">
+<div class="mod-head"><span class="mod-num">MODULE 07 · STEP 7</span><span class="mod-time">Week 13 · ~10 ghante + ongoing</span></div>
+<h2>Portfolio Building &amp; Real-World Projects</h2>
+<p>Certificate aapko interview tak le jaata hai. Portfolio aapko job dilata hai. Performance marketing mein log degree se zyada ye dekhte hain: <strong>"Tumne kisi ke paise se kya result laaya, aur kaise soch ke?"</strong></p>
+<div class="goals"><h5>Is module ke baad aap</h5><ul>
+<li>Bina job ke bhi real projects karke case studies bana paoge</li>
+<li>Professional case study structure mein likh paoge</li>
+<li>Portfolio, LinkedIn aur certifications set kar paoge</li>
+</ul></div>
+
+<h3 id="m7-projects"><span class="tn">7.1</span>Real projects kahan se laayein (bina experience ke)</h3>
+<div class="tbl"><table>
+<tr><th>Option</th><th>Kaise</th><th>Value</th></tr>
+<tr><td><strong>Apna mini business</strong></td><td>Ek simple product (print-on-demand, digital download, local service) ₹3-5k budget ke saath</td><td>Sabse zyada learning; poora funnel aapka</td></tr>
+<tr><td><strong>Local business (free/low fee)</strong></td><td>Cafe, salon, gym, coaching, clinic — 1 mahina free, sirf ad budget unka</td><td>Real client, real testimonial</td></tr>
+<tr><td><strong>NGO / college event / friend ka startup</strong></td><td>Registrations, donations, event tickets</td><td>Easy access, impact story</td></tr>
+<tr><td><strong>Spec work (audit)</strong></td><td>Kisi brand ka public audit: Ad Library se ads, landing page CRO audit, improvement plan</td><td>Zero budget, strategic thinking dikhata hai</td></tr>
+<tr><td><strong>Internship / freelancing</strong></td><td>Agencies, Internshala, LinkedIn, Upwork-type platforms</td><td>Multiple accounts ka exposure</td></tr>
+</table></div>
+
+<h3 id="m7-case"><span class="tn">7.2</span>Case Study ka structure</h3>
+<div class="tbl"><table>
+<tr><th>Section</th><th>Kya likhna hai</th><th>Example</th></tr>
+<tr><td><strong>1. Business Problem</strong></td><td>Client kaun, kya bechta hai, kya problem thi, numbers ke saath</td><td>"Bhopal ki ek bakery ki weekday orders 30/din pe stuck thi; Instagram pe sirf organic posts"</td></tr>
+<tr><td><strong>2. Strategy</strong></td><td>Research se kya mila, kaunsa channel aur kyun, audience, offer, angle</td><td>"Office lunch-time cravings angle, 3 km radius, Click-to-WhatsApp ads, combo offer"</td></tr>
+<tr><td><strong>3. Execution</strong></td><td>Campaign structure, creatives (screenshots), tracking setup, budget, timeline</td><td>"₹500/din × 21 din, 6 creatives (3 UGC reels, 3 statics), WhatsApp catalog"</td></tr>
+<tr><td><strong>4. Numbers</strong></td><td>Before vs after, key metrics, honestly</td><td>"₹10,500 spend · 412 conversations · ₹25 per conversation · 168 orders · ₹62 CPA · weekday orders 30 → 44/din"</td></tr>
+<tr><td><strong>5. Learnings</strong></td><td>Kya kaam kiya, kya nahi, kyun</td><td>"UGC reel ka CPA static se 41% kam; 9-11 AM slot sabse sasta"</td></tr>
+<tr><td><strong>6. Optimization / next steps</strong></td><td>Aage kya karte, kya test karte</td><td>"Repeat customers ke liye WhatsApp broadcast + loyalty card"</td></tr>
+</table></div>
+<div class="box warn"><h5>Honesty rule</h5><p>Numbers kabhi fake mat karo. Interviewer ek-do follow-up questions mein pakad leta hai. Agar result achha nahi aaya to bhi case study likho: "Kya galat hua aur maine kya seekha" — ye bhi strong signal hai. Client ka data share karne se pehle permission lo ya naam/numbers anonymize karo.</p></div>
+
+<h3 id="m7-portfolio"><span class="tn">7.3</span>Portfolio kaisa dikhe</h3>
+<ul>
+<li><strong>Format:</strong> Ek simple website (Notion, Google Sites, WordPress) ya 8-12 slide PDF. Har case study 1-2 page.</li>
+<li><strong>Ingredients:</strong> 2-4 case studies, ek tracking setup demo (GTM screenshots + measurement plan), ek CRO audit, creative samples (ads jo banaye), ek sample client report/dashboard.</li>
+<li><strong>Screenshots:</strong> Ads Manager / Google Ads (sensitive info blur), creatives, landing pages, dashboards.</li>
+<li><strong>Top pe summary:</strong> "Maine X businesses ke liye ₹Y ad spend manage kiya, Z results" — sirf agar sach ho.</li>
+<li><strong>Short Loom/video walkthrough</strong> (3-5 min) jisme aap ek case study explain karo. Recruiters ko communication skill bhi dikhti hai.</li>
+</ul>
+
+<h3 id="m7-cert"><span class="tn">7.4</span>Certifications aur learning resources</h3>
+<div class="tbl"><table>
+<tr><th>Resource</th><th>Kya</th><th>Cost</th></tr>
+<tr><td>Google Skillshop</td><td>Google Ads certifications (Search, Display, Video, Shopping, Measurement, AI-powered performance), GA4</td><td>Free</td></tr>
+<tr><td>Meta Blueprint</td><td>Free courses; paid certification exams (Media Buying Professional, etc.)</td><td>Courses free, exam paid</td></tr>
+<tr><td>Google Analytics Academy / Skillshop GA4</td><td>GA4 certification</td><td>Free</td></tr>
+<tr><td>HubSpot Academy</td><td>Inbound, content, email marketing</td><td>Free</td></tr>
+<tr><td>Official blogs/help centers</td><td>Meta for Business, Google Ads Help, Think with Google</td><td>Free</td></tr>
+</table></div>
+<p>Kam se kam ye karo: <strong>Google Ads Search certification + GA4 certification</strong> (free, LinkedIn pe dikhte hain). Meta certification tab, jab aapne thoda real spend manage kar liya ho.</p>
+
+<h3 id="m7-linkedin"><span class="tn">7.5</span>LinkedIn aur personal brand</h3>
+<ul>
+<li><strong>Headline:</strong> "Performance Marketer | Meta &amp; Google Ads | GA4 &amp; Tracking | Helping D2C brands lower CAC" — specific rakho.</li>
+<li><strong>Featured section:</strong> Portfolio link, best case study.</li>
+<li><strong>Har hafte 1-2 post:</strong> Ek learning, ek ad breakdown (Ad Library se), ek mini case study, ek mistake jo aapne ki. Isse recruiters aur clients dono aate hain.</li>
+<li>Industry logon se genuinely connect karo; "please job do" message ki jagah unke post pe sensible comment.</li>
+</ul>
+
+<div class="task"><h5>Practice task · Module 7</h5><ol>
+<li>Ek local business dhoondho aur 3-4 hafte ka project propose karo (free ya low fee).</li>
+<li>Project ke dauraan har hafte notes likho (case study ke liye material).</li>
+<li>Ek spec audit karo kisi D2C brand ka: Ad Library analysis + landing page CRO audit + 30-day plan.</li>
+<li>Portfolio site/PDF banao with 2 case studies + 1 audit + tracking demo.</li>
+<li>Google Ads Search aur GA4 certifications complete karo.</li>
+</ol></div>
+
+<div class="done-row"><button class="done-btn" data-mod="m7" aria-pressed="false">Mark complete</button></div>
+</section>
+<section class="module" id="m8" data-title="Bonus: 90-Day Plan + First Job">
+<div class="mod-head"><span class="mod-num">BONUS</span><span class="mod-time">Poore course ka roadmap</span></div>
+<h2>90-Day Learning Plan + First Job Strategy</h2>
+<p>Roz ~2 ghante (weekend pe 4) maan ke plan banaya gaya hai. Speed se zyada consistency matter karti hai. Har week ka output (deliverable) zaroor banao — wahi aapka portfolio banega.</p>
+
+<h3 id="m8-plan"><span class="tn">8.1</span>90-day plan (week by week)</h3>
+<div class="weeks">
+<div class="week"><span class="wk">WEEK 1</span><b>Funnel &amp; psychology</b><ul><li>Module 0 + 1.1–1.2</li><li>Ad Library se 30 ads classify</li><li>Output: funnel + psychology notes</li></ul></div>
+<div class="week"><span class="wk">WEEK 2</span><b>Business metrics</b><ul><li>Module 1.3–1.12</li><li>Unit economics sheet 3 brands ki</li><li>Output: metrics calculator sheet</li></ul></div>
+<div class="week"><span class="wk">WEEK 3</span><b>Meta setup &amp; structure</b><ul><li>Module 2.1–2.4</li><li>Business Portfolio + pixel setup</li><li>Meta Blueprint basic courses</li></ul></div>
+<div class="week"><span class="wk">WEEK 4</span><b>Meta targeting &amp; budget</b><ul><li>Module 2.5–2.7</li><li>Pehla ₹300/din campaign live</li><li>Output: daily observation log</li></ul></div>
+<div class="week"><span class="wk">WEEK 5</span><b>Meta leads, sales, retargeting</b><ul><li>Module 2.8–2.13</li><li>Lead form + WhatsApp campaign</li><li>Output: Meta campaign report</li></ul></div>
+<div class="week"><span class="wk">WEEK 6</span><b>Google Ads basics</b><ul><li>Module 3.1–3.4</li><li>Keyword research 50 keywords</li><li>Skillshop Search course start</li></ul></div>
+<div class="week"><span class="wk">WEEK 7</span><b>Search campaigns build</b><ul><li>Module 3.5–3.8</li><li>RSA copy + negatives + structure sheet</li><li>Search campaign live (agar budget)</li></ul></div>
+<div class="week"><span class="wk">WEEK 8</span><b>Google advanced</b><ul><li>Module 3.9–3.13</li><li>PMax/Demand Gen walkthrough</li><li>Google Ads Search certification</li></ul></div>
+<div class="week"><span class="wk">WEEK 9</span><b>GTM + GA4</b><ul><li>Module 4.1–4.4</li><li>Test site pe GTM + GA4 + events</li><li>GA4 certification</li></ul></div>
+<div class="week"><span class="wk">WEEK 10</span><b>UTM, consent, attribution</b><ul><li>Module 4.5–4.11</li><li>Tracking plan + UTM sheet</li><li>Looker Studio dashboard</li></ul></div>
+<div class="week"><span class="wk">WEEK 11</span><b>Creative strategy</b><ul><li>Module 5.1–5.9</li><li>Customer Voice sheet + creative matrix</li><li>6 creatives banao</li></ul></div>
+<div class="week"><span class="wk">WEEK 12</span><b>CRO + AI</b><ul><li>Module 5.10–5.12 + Module 6</li><li>2 landing page audits</li><li>AI workflow + automation</li></ul></div>
+<div class="week"><span class="wk">WEEK 13</span><b>Portfolio &amp; job hunt</b><ul><li>Module 7 + 8</li><li>2 case studies + portfolio live</li><li>20 applications + 10 outreach</li></ul></div>
+</div>
+<div class="box tip"><h5>Parallel track: real client</h5><p>Week 4 tak ek real (local/free) client dhoondh lo aur week 5–12 uske saath kaam karo. 90 din ke end mein aapke paas ek real case study hogi jo kisi course certificate se zyada valuable hai.</p></div>
+
+<h3 id="m8-job"><span class="tn">8.2</span>First job strategy</h3>
+<h4>Kaunse roles dhoondhein</h4>
+<div class="tbl"><table>
+<tr><th>Role title</th><th>Kahan</th></tr>
+<tr><td>Performance Marketing Executive / Associate</td><td>D2C brands, agencies</td></tr>
+<tr><td>Paid Media Executive / PPC Executive</td><td>Agencies, ed-tech, real estate</td></tr>
+<tr><td>Digital Marketing Executive (paid ads focus)</td><td>SMEs, local businesses</td></tr>
+<tr><td>Growth Marketing Intern / Associate</td><td>Startups</td></tr>
+<tr><td>Media Buyer (junior)</td><td>D2C, agencies</td></tr>
+</table></div>
+<h4>Application strategy</h4>
+<ol>
+<li><strong>Agency pehle, brand baad mein.</strong> Agency mein 5-10 accounts dekhne ko milte hain; 1 saal mein 3 saal jitna seekhoge.</li>
+<li><strong>Targeted applications:</strong> 50 random applications se 15 targeted better. Har company ke liye 2-line custom note: "Aapke Instagram ads dekhe, ye 2 ideas hain."</li>
+<li><strong>Mini-audit pitch:</strong> Target company ka 1-page audit bana ke founder/marketing head ko LinkedIn pe bhejo. Response rate bahut zyada hota hai.</li>
+<li><strong>Channels:</strong> LinkedIn jobs, Naukri, Instahyre/Cutshort, agency websites, startup founders ko direct DM, local digital marketing communities.</li>
+</ol>
+
+<h3 id="m8-interview"><span class="tn">8.3</span>Interview questions (practice karo)</h3>
+<details class="check"><summary>20 common interview questions with answer hints</summary><div class="in"><ol>
+<li>ROAS aur MER mein farak? <span class="ans">ROAS platform/campaign level; MER total revenue ÷ total marketing spend, business level.</span></li>
+<li>Break-even ROAS kaise nikaloge? <span class="ans">1 ÷ contribution margin; example ke saath batao.</span></li>
+<li>CPA badh gaya hai. Kaise diagnose karoge? <span class="ans">CPM → CTR → CVR breakdown, frequency, tracking check, seasonality, creative fatigue, landing page changes.</span></li>
+<li>Andromeda ne Meta ads kaise badle? <span class="ans">Creative-led targeting, consolidation, broad audiences, creative diversity, signal quality.</span></li>
+<li>Advantage+ Sales campaign kab nahi chalaoge? <span class="ans">Bahut kam conversion data, strict control/testing chahiye, niche B2B, ya new account jahan signal nahi.</span></li>
+<li>Learning phase kya hai aur kya reset karta hai?</li>
+<li>Pixel aur CAPI ka farak, deduplication kaise?</li>
+<li>Match types explain karo aur kab broad use karoge?</li>
+<li>AI Max for Search kya hai? DSA ka kya hoga?</li>
+<li>Quality Score kaise improve karoge?</li>
+<li>Target CPA kab use karna chahiye?</li>
+<li>GA4 aur Meta ke numbers match kyun nahi karte?</li>
+<li>Ek lead gen client ki lead quality kharab hai. 5 steps?</li>
+<li>Creative testing ka process batao.</li>
+<li>Ek ad ka hook rate high, CTR low. Kya matlab?</li>
+<li>₹1 lakh budget naye D2C brand ke liye kaise baantoge?</li>
+<li>UTM naming convention kya rakhoge?</li>
+<li>Consent Mode v2 kya hai?</li>
+<li>Apni best case study 3 minute mein explain karo.</li>
+<li>Ek galti batao jo tumne campaign mein ki aur kya seekha?</li>
+</ol></div></details>
+<div class="box example"><h5>Practical round ke liye ready raho</h5><p>Bahut companies assignment deti hain: "Ye account data hai, analysis karo" ya "Is product ke liye 30-din ka Meta + Google plan banao, budget ₹2 lakh." Module 1 ka diagnosis framework, Module 2-3 ka structure, Module 5 ka creative matrix — ye sab yahan kaam aayega. Answer hamesha business numbers se shuru karo (margin, break-even), phir channels.</p></div>
+
+<h3 id="m8-freelance"><span class="tn">8.4</span>Freelancing / agency route</h3>
+<ul>
+<li><strong>Niche chuno:</strong> "Coaching institutes ke liye lead gen" &gt; "sab ke liye digital marketing". Niche mein case studies reuse hoti hain aur price zyada milta hai.</li>
+<li><strong>Pricing models:</strong> Fixed monthly retainer, % of ad spend (aam taur pe bade accounts), ya retainer + performance bonus. Shuru mein fixed retainer simple hai.</li>
+<li><strong>Scope likhit mein:</strong> Platforms, number of creatives, reporting frequency, kya included nahi (website development, creative shoots). Ad budget hamesha client ke card se, aapke se nahi.</li>
+<li><strong>Onboarding checklist:</strong> Access (Business Portfolio partner, Google Ads MCC link, GA4, GTM, website admin), unit economics, past performance data, brand assets, goals in numbers.</li>
+<li><strong>Expectation setting:</strong> Pehle 2-4 hafte testing phase. Guarantee kabhi mat do ("100 leads guaranteed"); process aur transparency ki guarantee do.</li>
+</ul>
+
+<h3 id="m8-future"><span class="tn">8.5</span>Aage relevant rehne ke liye</h3>
+<p>Ye skills 2027-2030 mein bhi value rakhengi, chahe platforms kitne bhi automate ho jayein:</p>
+<div class="cards">
+<div class="card"><b>Business &amp; unit economics</b><p>AI bid kar sakta hai, par kitna kharch karna business ke liye sahi hai, ye decision aapka.</p></div>
+<div class="card"><b>First-party data &amp; measurement</b><p>CAPI, offline conversions, consent, incrementality. Jiska data achha, uska AI achha.</p></div>
+<div class="card"><b>Creative strategy</b><p>Customer insight se angles aur hooks. AI produce karega, direction aap doge.</p></div>
+<div class="card"><b>CRO &amp; offer design</b><p>Click ke baad ka experience, aur offer jo "na" bolna mushkil bana de.</p></div>
+<div class="card"><b>AI orchestration</b><p>AI tools ko workflows mein jodna aur unke output ko judge karna.</p></div>
+<div class="card"><b>Communication</b><p>Client/founder ko numbers ki kahani samjhana aur trust banana.</p></div>
+</div>
+<p><strong>Weekly habit:</strong> Har hafte 30 minute: Meta for Business news, Google Ads blog/announcements, aur 1-2 industry newsletters. Har quarter ek naya feature test karo.</p>
+
+<h3 id="m8-gloss"><span class="tn">8.6</span>Glossary (quick reference)</h3>
+<dl class="gloss">
+<dt>AOV</dt><dd>Average Order Value: revenue ÷ orders</dd>
+<dt>Andromeda</dt><dd>Meta ka AI ad-retrieval system jo creative ke basis pe ads ko logon se match karta hai</dd>
+<dt>Advantage+</dt><dd>Meta ke automation features aur campaign types (Sales, App, Leads)</dd>
+<dt>AI Max</dt><dd>Google Search campaigns ke liye AI feature suite: search term matching, text customization, final URL expansion</dd>
+<dt>ABO / CBO</dt><dd>Ad set budget / campaign budget (Advantage campaign budget)</dd>
+<dt>Attribution</dt><dd>Conversion ka credit kis touchpoint ko milega, uska rule</dd>
+<dt>CAC</dt><dd>Customer Acquisition Cost: total acquisition cost ÷ naye customers</dd>
+<dt>CAPI</dt><dd>Meta Conversions API: server se events bhejna</dd>
+<dt>CMP</dt><dd>Consent Management Platform: cookie banner tool</dd>
+<dt>Contribution margin</dt><dd>Revenue minus COGS aur saare variable costs, % mein</dd>
+<dt>CPA / CPL</dt><dd>Cost per acquisition / cost per lead</dd>
+<dt>CPC / CPM</dt><dd>Cost per click / cost per 1,000 impressions</dd>
+<dt>CRO</dt><dd>Conversion Rate Optimization</dd>
+<dt>CTR</dt><dd>Click-through rate: clicks ÷ impressions</dd>
+<dt>CVR</dt><dd>Conversion rate: conversions ÷ clicks (ya sessions)</dd>
+<dt>Data layer</dt><dd>Website ka structured data jo GTM padhta hai</dd>
+<dt>Deduplication</dt><dd>Pixel aur CAPI ke same event ko ek count karna (event_id se)</dd>
+<dt>DPDP Act</dt><dd>India ka Digital Personal Data Protection Act, 2023</dd>
+<dt>EMQ</dt><dd>Event Match Quality: Meta events ko users se match karne ka score</dd>
+<dt>Enhanced conversions</dt><dd>Google ko hashed first-party data bhej ke conversion match improve karna</dd>
+<dt>Frequency</dt><dd>Impressions ÷ reach</dd>
+<dt>gclid / fbclid</dt><dd>Google / Facebook click IDs jo URL mein aate hain</dd>
+<dt>Hook rate</dt><dd>3-second video views ÷ impressions</dd>
+<dt>Incrementality</dt><dd>Wo extra result jo sirf ad ki wajah se aaya</dd>
+<dt>Key event</dt><dd>GA4 mein important conversion action (pehle "conversion")</dd>
+<dt>Learning phase</dt><dd>Naye/edited ad set ka unstable period jab algorithm seekh raha hai</dd>
+<dt>LTV</dt><dd>Lifetime Value: customer se poore relationship mein contribution</dd>
+<dt>MER</dt><dd>Marketing Efficiency Ratio: total revenue ÷ total marketing spend</dd>
+<dt>MMM</dt><dd>Marketing Mix Modeling: statistical model of spend vs sales</dd>
+<dt>Payback period</dt><dd>CAC recover hone mein lagne wala time</dd>
+<dt>PMax</dt><dd>Performance Max: Google ka all-channel AI campaign</dd>
+<dt>Quality Score</dt><dd>Google ka 1-10 keyword quality rating</dd>
+<dt>ROAS</dt><dd>Return on Ad Spend: ad revenue ÷ ad spend</dd>
+<dt>RSA</dt><dd>Responsive Search Ad: 15 headlines + 4 descriptions</dd>
+<dt>RTO</dt><dd>Return to Origin: COD order deliver nahi hua, wapas aaya</dd>
+<dt>sGTM</dt><dd>Server-side Google Tag Manager</dd>
+<dt>TOFU / MOFU / BOFU</dt><dd>Top / middle / bottom of funnel</dd>
+<dt>UGC</dt><dd>User Generated Content: real-customer style content</dd>
+<dt>UTM</dt><dd>URL tags jo traffic ka source batate hain</dd>
+</dl>
+
+<div class="done-row"><button class="done-btn" data-mod="m8" aria-pressed="false">Mark complete</button></div>
+</section>
+
+<footer class="foot">
+<p>Course notes · Oct 2026. Platform features (Meta Advantage+, Google AI Max, Consent Mode) tezi se badalte hain; koi bhi setting apply karne se pehle official help center mein current version check karein. Benchmarks rough guides hain, industry aur account ke hisaab se badlte hain.</p>
+<p>Official resources: <a href="https://www.facebookblueprint.com/" target="_blank" rel="noopener">Meta Blueprint</a> · <a href="https://skillshop.withgoogle.com/" target="_blank" rel="noopener">Google Skillshop</a> · <a href="https://support.google.com/google-ads" target="_blank" rel="noopener">Google Ads Help</a> · <a href="https://www.facebook.com/business/help" target="_blank" rel="noopener">Meta Business Help</a></p>
+</footer>
+
+</div>
+</main>
+</div>
+
+<script>
+(function(){
+  var mods = Array.prototype.slice.call(document.querySelectorAll('section.module'));
+  var tocList = document.getElementById('tocList');
+  var KEY = 'pm-course-done-v1';
+  var done = {};
+  try { done = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; } catch(e) { done = {}; }
+
+  // build TOC
+  mods.forEach(function(sec, i){
+    var li = document.createElement('li');
+    var a = document.createElement('a');
+    a.className = 'mod';
+    a.href = '#' + sec.id;
+    a.dataset.mod = sec.id;
+    var n = document.createElement('span'); n.className = 'n';
+    n.textContent = sec.id === 'm8' ? '★' : String(i).padStart(2,'0');
+    var t = document.createElement('span'); t.textContent = sec.dataset.title;
+    a.appendChild(n); a.appendChild(t);
+    li.appendChild(a);
+    var subs = document.createElement('ul'); subs.className = 'subs';
+    sec.querySelectorAll('h3[id]').forEach(function(h){
+      var sl = document.createElement('li');
+      var sa = document.createElement('a');
+      sa.href = '#' + h.id;
+      var tn = h.querySelector('.tn');
+      sa.textContent = (tn ? tn.textContent + ' ' : '') + h.textContent.replace(tn ? tn.textContent : '', '').trim();
+      sl.appendChild(sa); subs.appendChild(sl);
+    });
+    li.appendChild(subs);
+    tocList.appendChild(li);
+  });
+
+  function render(){
+    var count = 0;
+    mods.forEach(function(sec){
+      var isDone = !!done[sec.id];
+      if (isDone) count++;
+      var btn = sec.querySelector('.done-btn');
+      if (btn){ btn.setAttribute('aria-pressed', isDone ? 'true' : 'false'); btn.textContent = isDone ? 'Completed ✓' : 'Mark complete'; }
+      var link = tocList.querySelector('a.mod[data-mod="' + sec.id + '"]');
+      if (link) link.classList.toggle('done', isDone);
+    });
+    document.getElementById('barFill').style.width = (count / mods.length * 100) + '%';
+    document.getElementById('pctTxt').textContent = count + ' / ' + mods.length + ' modules';
+  }
+  document.querySelectorAll('.done-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.dataset.mod;
+      done[id] = !done[id];
+      try { localStorage.setItem(KEY, JSON.stringify(done)); } catch(e) {}
+      render();
+    });
+  });
+  render();
+
+  // active module highlight
+  var links = tocList.querySelectorAll('a.mod');
+  function setActive(){
+    var y = window.scrollY + 120, current = mods[0].id;
+    mods.forEach(function(s){ if (s.offsetTop <= y) current = s.id; });
+    links.forEach(function(l){
+      var on = l.dataset.mod === current;
+      l.classList.toggle('active', on);
+      l.nextElementSibling.classList.toggle('open', on);
+    });
+  }
+  var ticking = false;
+  window.addEventListener('scroll', function(){ if(!ticking){ ticking = true; requestAnimationFrame(function(){ setActive(); ticking = false; }); } }, {passive:true});
+  setActive();
+
+  // mobile menu
+  var toc = document.getElementById('toc'), mb = document.getElementById('menuBtn');
+  mb.addEventListener('click', function(){
+    var open = toc.classList.toggle('open');
+    mb.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  toc.addEventListener('click', function(e){
+    if (e.target.closest('a') && window.innerWidth <= 960){ toc.classList.remove('open'); mb.setAttribute('aria-expanded','false'); }
+  });
+
+  // calculator
+  function num(id){ var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; }
+  function inr(v){ return '₹' + Math.round(v).toLocaleString('en-IN'); }
+  function calc(){
+    var aov = num('c_aov'), cogs = num('c_cogs'), vc = num('c_var'), spend = num('c_spend'), orders = num('c_orders'), rep = Math.max(1, num('c_rep'));
+    var contrib = aov - cogs - vc;
+    var cm = aov > 0 ? contrib / aov : 0;
+    var ber = cm > 0 ? 1 / cm : Infinity;
+    var roas = spend > 0 ? (orders * aov) / spend : 0;
+    var cpa = orders > 0 ? spend / orders : 0;
+    var ltv = contrib * rep;
+    var ratio = cpa > 0 ? ltv / cpa : 0;
+    document.getElementById('o_cm').textContent = (cm * 100).toFixed(1) + '%';
+    document.getElementById('o_ber').textContent = isFinite(ber) ? ber.toFixed(2) + 'x' : '—';
+    document.getElementById('o_bec').textContent = inr(Math.max(contrib,0));
+    document.getElementById('o_roas').textContent = roas.toFixed(2) + 'x';
+    document.getElementById('o_cpa').textContent = orders > 0 ? inr(cpa) : '—';
+    document.getElementById('o_ltv').textContent = ratio > 0 ? ratio.toFixed(1) + ' : 1' : '—';
+    var v = document.getElementById('o_verdict');
+    if (cm <= 0) { v.textContent = 'Contribution margin zero ya negative hai: ads se pehle hi har order pe loss. Pricing/costs fix karo.'; }
+    else if (orders === 0 || spend === 0) { v.textContent = 'Spend aur orders daalo verdict dekhne ke liye.'; }
+    else if (cpa > contrib && ltv < cpa) { v.textContent = 'Loss: CPA (' + inr(cpa) + ') first-order contribution aur lifetime contribution dono se zyada hai. CVR/AOV/offer pe kaam karo.'; }
+    else if (cpa > contrib) { v.textContent = 'First order pe loss, par repeat purchases se recover ho raha hai (LTV : CAC ' + ratio.toFixed(1) + '). Payback aur cash flow pe nazar rakho.'; }
+    else if (ratio >= 3) { v.textContent = 'Healthy: first order pe hi profit aur LTV : CAC ' + ratio.toFixed(1) + '. Scale karne ki jagah hai.'; }
+    else { v.textContent = 'First order pe profit, par LTV : CAC ' + ratio.toFixed(1) + ' hai. Retention aur AOV improve karo.'; }
+  }
+  document.querySelectorAll('#calc1 input').forEach(function(i){ i.addEventListener('input', calc); });
+  calc();
+})();
+</script>
+
+</body></html>
